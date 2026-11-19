@@ -55,10 +55,9 @@ const ANSI_RE = /\x1b\[[0-9;?]*[a-zA-Z]|\x1b\][^\x07]*(?:\x07|\x1b\\)/g;
 const REJECTED_RE = /^\s*warning: rejected a tool call.*$/gim;
 
 // Final answer = trimmed stdout without ANSI escapes and without
-// "warning: rejected a tool call" lines (from stdout or stderr).
-export function cleanAnswer(stdout, stderr = '') {
-  const combined = `${stdout}\n${stderr}`;
-  return combined
+// "warning: rejected a tool call" lines. stderr never lands in the chat.
+export function cleanAnswer(stdout) {
+  return (stdout || '')
     .replace(ANSI_RE, '')
     .split(/\r?\n/)
     .filter((l) => !/^\s*warning: rejected a tool call/i.test(l))

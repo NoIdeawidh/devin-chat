@@ -67,14 +67,15 @@ test('buildSpawnEnv keeps whitelist case-insensitively and drops the rest', () =
 });
 
 test('cleanAnswer strips ANSI escapes and rejected-tool-call warnings', () => {
-  const stdout = '[32mHallo[0m Welt\n\nAntwort hier.';
-  const stderr = 'warning: rejected a tool call (write_file): blocked\n';
-  assert.equal(cleanAnswer(stdout, stderr), 'Hallo Welt\n\nAntwort hier.');
+  const stdout = '\x1b[32mHallo\x1b[0m Welt\nwarning: rejected a tool call (write_file): blocked\n\nAntwort hier.';
+  assert.equal(cleanAnswer(stdout), 'Hallo Welt\n\nAntwort hier.');
 });
 
-test('cleanAnswer drops warning lines inside stdout too', () => {
+test('cleanAnswer reads stdout only', () => {
   const out = 'erste Zeile\nwarning: rejected a tool call (run_command)\nletzte Zeile\n';
   assert.equal(cleanAnswer(out), 'erste Zeile\nletzte Zeile');
+  assert.equal(cleanAnswer(''), '');
+  assert.equal(cleanAnswer(undefined), '');
 });
 
 test('buildPrompt fresh = preamble + blank + user text', () => {

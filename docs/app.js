@@ -17,7 +17,8 @@ const els = {
   loginView: $('login-view'), loginForm: $('login-form'), loginPassword: $('login-password'),
   loginError: $('login-error'), app: $('app'), sidebar: $('sidebar'), overlay: $('sidebar-overlay'),
   menuBtn: $('menu-btn'), newChatBtn: $('new-chat'), chatList: $('chat-list'), logout: $('logout'),
-  chatTitle: $('chat-title'), modelSelect: $('model-select'), banner: $('offline-banner'),
+  chatTitle: $('chat-title'), familySelect: $('family-select'), variantSelect: $('variant-select'),
+  banner: $('offline-banner'),
   messages: $('messages'), composer: $('composer'), input: $('composer-input'), sendBtn: $('send-btn'),
 };
 
@@ -25,6 +26,7 @@ const state = {
   chats: [],
   current: null,        // chat row or null = unsaved new chat
   messages: [],
+  msgSig: '',
   models: [],
   pollTimer: null,
   sending: false,
@@ -37,7 +39,7 @@ marked.setOptions({ breaks: true });
 function shortInfo(info) {
   if (!info) return '';
   if (/free/i.test(info)) return 'Free';
-  const parts = info.split(',');
+  const parts = info.split(/[,·]/);
   return parts[parts.length - 1].trim();
 }
 
@@ -58,6 +60,10 @@ function scrollBottom() {
   els.messages.scrollTop = els.messages.scrollHeight;
 }
 
+function nearBottom() {
+  return els.messages.scrollHeight - els.messages.scrollTop - els.messages.clientHeight < 80;
+}
+
 function hasActive(chatMessages) {
   return chatMessages.some((m) => m.status === 'pending' || m.status === 'running');
 }
@@ -70,16 +76,19 @@ function setComposerEnabled() {
 
 // ---------- auth ----------
 
-async function init() {
-  const { data } = await supabase.auth.getSession();
-  if (data.session) {
-    showApp();
-  } else {
-    els.loginView.hidden = false;
-  }
+let appStarted = false;
+
+function init() {
+  // onAuthStateChange fires immediately with INITIAL_SESSION (or null) and on
+  // every later auth event – it is the single driver for showing/hiding the app.
   supabase.auth.onAuthStateChange((_e, session) => {
-    if (session) showApp();
-    else {
+    if (session) {
+      if (!appStarted) {
+        appStarted = true;
+        showApp();
+      }
+    } else {
+      appStarted = false;
       els.app.hidden = true;
       els.loginView.hidden = false;
       stopPolling();
@@ -114,6 +123,18 @@ async function showApp() {
   setInterval(tickWorkerStatus, STATUS_MS);
 }
 
+// PostgREST caps a select at 1000 rows -> page until a short page.
+async function selectAll(query) {
+  const PAGE = 1000;
+  const rows = [];
+  for (let from = 0; ; from += PAGE) {
+    const { data, error } = await query.range(from, from + PAGE - 1);
+    if (error) throw error;
+    rows.push(...data);
+    if (data.length < PAGE) return rows;
+  }
+}
+
 async function loadChats() {
   const { data, error } = await supabase
     .from('chats')
@@ -125,49 +146,89 @@ async function loadChats() {
 }
 
 async function loadModels() {
-  const { data, error } = await supabase.from('models').select('*').order('sort');
-  if (error) return console.error(error);
-  state.models = data || [];
-  renderModelSelect();
+  try {
+    state.models = await selectAll(supabase.from('models').select('*').order('sort'));
+  } catch (e) {
+    return console.error(e);
+  }
+  renderFamilySelect();
 }
 
-function renderModelSelect() {
-  const sel = els.modelSelect;
-  const prev = sel.value;
-  sel.textContent = '';
-  const families = new Map();
+function families() {
+  const seen = [];
   for (const m of state.models) {
-    if (!families.has(m.family)) families.set(m.family, []);
-    families.get(m.family).push(m);
+    if (!seen.includes(m.family)) seen.push(m.family);
   }
-  for (const [family, items] of families) {
-    const g = document.createElement('optgroup');
-    g.label = family;
-    for (const m of items) {
-      const o = document.createElement('option');
-      o.value = m.id;
-      o.textContent = m.label + (shortInfo(m.info) ? ` — ${shortInfo(m.info)}` : '');
-      g.appendChild(o);
-    }
-    sel.appendChild(g);
-  }
-  sel.value = prev || selectedModel();
-  if (!sel.value) sel.value = DEFAULT_MODEL;
+  return seen;
 }
 
-function selectedModel() {
-  if (state.current) return state.current.model || DEFAULT_MODEL;
-  return localStorage.getItem('lastModel') || DEFAULT_MODEL;
+// Label minus the family prefix, e.g. "SWE-2 High" -> "High".
+function variantLabel(m) {
+  let l = m.label;
+  if (l.startsWith(m.family)) l = l.slice(m.family.length).trim();
+  if (!l) l = m.label;
+  const info = shortInfo(m.info);
+  return info ? `${l} — ${info}` : l;
 }
 
-els.modelSelect.addEventListener('change', async () => {
-  const id = els.modelSelect.value;
+function renderFamilySelect() {
+  const sel = els.familySelect;
+  sel.textContent = '';
+  for (const f of families()) {
+    const o = document.createElement('option');
+    o.value = f;
+    o.textContent = f;
+    sel.appendChild(o);
+  }
+  setModel(state.current?.model || localStorage.getItem('lastModel') || DEFAULT_MODEL);
+}
+
+function renderVariantSelect(family) {
+  const sel = els.variantSelect;
+  sel.textContent = '';
+  for (const m of state.models.filter((x) => x.family === family)) {
+    const o = document.createElement('option');
+    o.value = m.id;
+    o.textContent = variantLabel(m);
+    sel.appendChild(o);
+  }
+}
+
+function getModel() {
+  return els.variantSelect.value || DEFAULT_MODEL;
+}
+
+function setModel(id) {
+  let m = state.models.find((x) => x.id === id);
+  if (!m) m = state.models.find((x) => x.id === DEFAULT_MODEL);
+  if (!m) m = state.models[0];
+  if (!m) return;
+  els.familySelect.value = m.family;
+  renderVariantSelect(m.family);
+  els.variantSelect.value = m.id;
+}
+
+async function onModelChange() {
+  const id = getModel();
   localStorage.setItem('lastModel', id);
   if (state.current) {
     state.current.model = id;
     await supabase.from('chats').update({ model: id }).eq('id', state.current.id);
   }
+}
+
+els.familySelect.addEventListener('change', () => {
+  const variants = state.models.filter((x) => x.family === els.familySelect.value);
+  const preferred =
+    variants.find((m) => m.id.endsWith('-medium')) ||
+    variants.find((m) => m.id.endsWith('-high')) ||
+    variants[0];
+  renderVariantSelect(els.familySelect.value);
+  if (preferred) els.variantSelect.value = preferred.id;
+  onModelChange();
 });
+
+els.variantSelect.addEventListener('change', onModelChange);
 
 // ---------- chats ----------
 
@@ -219,8 +280,9 @@ function newChat(rerender = true) {
   state.messages = [];
   stopPolling();
   els.chatTitle.textContent = 'Neuer Chat';
-  els.modelSelect.value = localStorage.getItem('lastModel') || DEFAULT_MODEL;
-  renderMessages();
+  setModel(localStorage.getItem('lastModel') || DEFAULT_MODEL);
+  state.msgSig = '';
+  renderMessages(true);
   if (rerender) renderChatList();
   closeSidebar();
   setComposerEnabled();
@@ -229,7 +291,7 @@ function newChat(rerender = true) {
 async function openChat(chat) {
   state.current = chat;
   els.chatTitle.textContent = chat.title || 'Neuer Chat';
-  els.modelSelect.value = chat.model || DEFAULT_MODEL;
+  setModel(chat.model || DEFAULT_MODEL);
   const { data, error } = await supabase
     .from('messages')
     .select('*')
@@ -237,11 +299,18 @@ async function openChat(chat) {
     .order('created_at');
   if (error) return console.error(error);
   state.messages = data || [];
-  renderMessages();
+  state.msgSig = signatureOf(state.messages);
+  renderMessages(true);
   renderChatList();
   closeSidebar();
   if (hasActive(state.messages)) startPolling();
   setComposerEnabled();
+}
+
+function signatureOf(messages) {
+  return messages
+    .map((m) => `${m.id}:${m.status}:${m.updated_at}:${(m.content || '').length}`)
+    .join('|');
 }
 
 async function refreshMessages() {
@@ -252,8 +321,17 @@ async function refreshMessages() {
     .eq('chat_id', state.current.id)
     .order('created_at');
   if (error) return console.error(error);
-  state.messages = data || [];
-  renderMessages();
+  const msgs = data || [];
+  const sig = signatureOf(msgs);
+  const grew = msgs.length > state.messages.length;
+  if (sig !== state.msgSig) {
+    const stick = nearBottom() || grew;
+    state.messages = msgs;
+    state.msgSig = sig;
+    renderMessages(stick);
+  } else {
+    state.messages = msgs;
+  }
   if (!hasActive(state.messages)) {
     stopPolling();
     loadChats();
@@ -295,7 +373,7 @@ async function send() {
   if (!text || state.sending || hasActive(state.messages)) return;
   state.sending = true;
   setComposerEnabled();
-  const model = els.modelSelect.value || DEFAULT_MODEL;
+  const model = getModel();
   localStorage.setItem('lastModel', model);
   try {
     const isFirst = state.messages.length === 0;
@@ -351,7 +429,7 @@ async function retryMessage(id) {
 
 // ---------- render ----------
 
-function renderMessages() {
+function renderMessages(stick = true) {
   els.messages.textContent = '';
   if (state.messages.length === 0) {
     const empty = document.createElement('div');
@@ -362,7 +440,7 @@ function renderMessages() {
   for (const m of state.messages) {
     els.messages.appendChild(renderMessage(m));
   }
-  scrollBottom();
+  if (stick) scrollBottom();
 }
 
 function renderMessage(m) {
@@ -453,5 +531,8 @@ els.menuBtn.addEventListener('click', () => {
 });
 els.overlay.addEventListener('click', closeSidebar);
 els.newChatBtn.addEventListener('click', () => newChat());
+
+// Debug/verification hook (harmless global).
+window.devinChat = { getModel, setModel, state };
 
 init();

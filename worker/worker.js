@@ -150,7 +150,13 @@ async function syncModels() {
       return;
     }
     await db(() => supabase.from('models').upsert(models));
-    const existing = await db(() => supabase.from('models').select('id'));
+    // PostgREST caps a select at 1000 rows -> page until a short page.
+    const existing = [];
+    for (let from = 0; ; from += 1000) {
+      const page = await db(() => supabase.from('models').select('id').order('sort').range(from, from + 999));
+      existing.push(...page);
+      if (page.length < 1000) break;
+    }
     const fresh = new Set(models.map((m) => m.id));
     const stale = (existing || []).map((r2) => r2.id).filter((id) => !fresh.has(id));
     if (stale.length) {
@@ -285,7 +291,7 @@ async function processJob(job) {
     return;
   }
 
-  const answer = cleanAnswer(r.out, r.err);
+  const answer = cleanAnswer(r.out);
   if (r.code !== 0 || !answer) {
     const errMsg = tail(r.err, 500) || `devin exit ${r.code}, leere Antwort`;
     await finish(job.id, { status: 'error', error: errMsg });
