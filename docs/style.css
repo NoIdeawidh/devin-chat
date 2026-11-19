@@ -13,6 +13,8 @@
 
 * { box-sizing: border-box; }
 
+[hidden] { display: none !important; }
+
 html, body {
   margin: 0;
   height: 100%;
@@ -358,6 +360,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 
 .composer textarea {
   flex: 1;
+  min-width: 0;
   resize: none;
   background: var(--bg-bubble-ai);
   border: 1px solid var(--border);

@@ -234,27 +234,28 @@ async function processJob(job) {
   const userRows = await db(() =>
     supabase
       .from('messages')
-      .select('content')
+      .select('id, content, created_at')
       .eq('chat_id', job.chat_id)
       .eq('role', 'user')
       .lt('created_at', job.created_at)
       .order('created_at', { ascending: false })
       .limit(1),
   );
-  const userText = userRows?.[0]?.content;
-  if (userText == null) {
+  const userMsg = userRows?.[0];
+  if (!userMsg) {
     await finish(job.id, { status: 'error', error: 'Keine Nutzernachricht gefunden.' });
     return;
   }
+  const userText = userMsg.content;
 
-  // earlier done messages for transcript fallback
+  // earlier done messages (before the triggering user message) for transcript fallback
   const history = await db(() =>
     supabase
       .from('messages')
       .select('role, content')
       .eq('chat_id', job.chat_id)
       .eq('status', 'done')
-      .neq('id', job.id)
+      .lt('created_at', userMsg.created_at)
       .order('created_at', { ascending: true }),
   );
   const prior = history || [];
