@@ -72,9 +72,9 @@ export function buildTranscript(messages) {
     .join('\n\n');
 }
 
-// mode 'fresh'     -> preamble + blank + user text
-// mode 'continue'  -> user text only
-// mode 'fallback'  -> preamble + transcript + user text (session lost / no -c)
+// mode 'fresh'    -> user text first (so the Devin session gets a readable
+//                    title), then the frame as a separated hint
+// mode 'fallback' -> preamble + transcript + user text (new session mid-chat)
 export function buildPrompt(mode, userText, transcript = '') {
   if (mode === 'continue') return userText;
   if (mode === 'fallback') {
@@ -83,7 +83,34 @@ export function buildPrompt(mode, userText, transcript = '') {
     parts.push(`Nutzer: ${userText}`);
     return parts.join('\n\n');
   }
-  return `${PREAMBLE}\n\n${userText}`;
+  return `${userText}\n\n---\nHinweis zum Rahmen (nicht Teil der Nachricht): ${PREAMBLE}`;
+}
+
+// Prompt for a resumed session that missed turns while it was locked.
+export function buildSyncPrompt(transcript, userText) {
+  return (
+    'Hinweis: Diese Sitzung war zwischenzeitlich gesperrt. ' +
+    `In der Zwischenzeit lief das Gespräch so weiter:\n\n${transcript}\n\n` +
+    `Aktuelle Nachricht des Nutzers:\n${userText}`
+  );
+}
+
+// stderr signature of a session that is open in another process.
+export function isLockedError(stderr) {
+  return /already open in another process|session_locked/i.test(stderr || '');
+}
+
+export function newestSession(list) {
+  if (!list?.length) return null;
+  return list.reduce((a, b) => (b.last_activity_at > a.last_activity_at ? b : a));
+}
+
+// Id of the session a run just created: any id in afterList not in beforeIds;
+// if none is new, the most recently active one.
+export function newSessionId(beforeIds, afterList) {
+  const fresh = (afterList || []).filter((s) => !beforeIds.has(s.id));
+  const pick = newestSession(fresh.length ? fresh : afterList);
+  return pick ? pick.id : null;
 }
 
 export function tail(s, n = 500) {

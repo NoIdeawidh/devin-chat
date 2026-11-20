@@ -7,6 +7,10 @@ import {
   cleanAnswer,
   buildTranscript,
   buildPrompt,
+  buildSyncPrompt,
+  isLockedError,
+  newestSession,
+  newSessionId,
   tail,
 } from '../lib.js';
 
@@ -78,9 +82,9 @@ test('cleanAnswer reads stdout only', () => {
   assert.equal(cleanAnswer(undefined), '');
 });
 
-test('buildPrompt fresh = preamble + blank + user text', () => {
+test('buildPrompt fresh = user text + frame hint', () => {
   const p = buildPrompt('fresh', 'Hallo');
-  assert.equal(p, `${PREAMBLE}\n\nHallo`);
+  assert.equal(p, `Hallo\n\n---\nHinweis zum Rahmen (nicht Teil der Nachricht): ${PREAMBLE}`);
 });
 
 test('buildPrompt continue = user text only', () => {
@@ -104,4 +108,42 @@ test('tail returns last n chars', () => {
   assert.equal(tail('abcdef', 3), 'def');
   assert.equal(tail('abc', 10), 'abc');
   assert.equal(tail(null), '');
+});
+
+test('isLockedError matches both lock signatures', () => {
+  assert.ok(isLockedError('Session foo is already open in another process'));
+  assert.ok(isLockedError('{"cognition.ai/errorKind": "session_locked"}'));
+  assert.ok(!isLockedError('some other failure'));
+  assert.ok(!isLockedError(''));
+  assert.ok(!isLockedError(undefined));
+});
+
+test('newestSession picks highest last_activity_at', () => {
+  const list = [
+    { id: 'a', last_activity_at: 10 },
+    { id: 'b', last_activity_at: 99 },
+    { id: 'c', last_activity_at: 50 },
+  ];
+  assert.equal(newestSession(list).id, 'b');
+  assert.equal(newestSession([]), null);
+  assert.equal(newestSession(null), null);
+});
+
+test('newSessionId prefers the id that appeared, else newest', () => {
+  const before = new Set(['a']);
+  const after = [
+    { id: 'a', last_activity_at: 10 },
+    { id: 'b', last_activity_at: 20 },
+  ];
+  assert.equal(newSessionId(before, after), 'b');
+  // no new id -> newest by activity
+  assert.equal(newSessionId(new Set(['a', 'b']), after), 'b');
+  assert.equal(newSessionId(new Set(), []), null);
+});
+
+test('buildSyncPrompt embeds transcript and current message', () => {
+  const p = buildSyncPrompt('Nutzer: x\n\nAssistent: y', 'neue Frage');
+  assert.ok(p.includes('zwischenzeitlich gesperrt'));
+  assert.ok(p.includes('Nutzer: x'));
+  assert.ok(p.endsWith('Aktuelle Nachricht des Nutzers:\nneue Frage'));
 });

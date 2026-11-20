@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import { spawn, execFile } from 'node:child_process';
-import { mkdirSync, writeFileSync, existsSync, appendFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync, readFileSync, existsSync, unlinkSync, appendFileSync } from 'node:fs';
 import { hostname } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -10,6 +10,10 @@ import {
   cleanAnswer,
   buildTranscript,
   buildPrompt,
+  buildSyncPrompt,
+  isLockedError,
+  newestSession,
+  newSessionId,
   tail,
 } from './lib.js';
 
@@ -128,11 +132,41 @@ function runDevin(args, cwd) {
   });
 }
 
-function devinArgs({ promptFile, cont, model }) {
+function devinArgs({ promptFile, resumeId, model }) {
   const args = ['-p', '--prompt-file', promptFile];
-  if (cont) args.push('-c');
+  if (resumeId) args.push('-r', resumeId);
   args.push('--model', model, '--respect-workspace-trust', 'false');
   return args;
+}
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+const ONEOFF_DIR = join(SESSIONS_DIR, '_oneoff');
+
+// devin list --format json for a directory -> array or null
+async function listSessions(cwd) {
+  const r = await runDevin(['list', '--format', 'json'], cwd);
+  if (r.code !== 0) {
+    log(`devin list in ${cwd} exit ${r.code}: ${tail(r.err, 200)}`);
+    return null;
+  }
+  try {
+    return JSON.parse(r.out);
+  } catch {
+    return null;
+  }
+}
+
+function readSessionFile(sessionDir) {
+  try {
+    return JSON.parse(readFileSync(join(sessionDir, 'session.json'), 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
+function writeSessionFile(sessionDir, meta) {
+  writeFileSync(join(sessionDir, 'session.json'), JSON.stringify(meta));
 }
 
 // ---------- model sync ----------
@@ -230,10 +264,50 @@ async function finish(id, fields) {
   );
 }
 
+// Fresh run in the chat dir: identifies the created session via list-diff and
+// stores it in session.json. Returns { r, mode }.
+async function runFresh(sessionDir, promptFile, userText, transcript, model, logMode) {
+  const mode = logMode || (transcript ? 'fallback' : 'fresh');
+  const beforeIds = new Set(((await listSessions(sessionDir)) || []).map((s) => s.id));
+  writeFileSync(promptFile, buildPrompt(transcript ? 'fallback' : 'fresh', userText, transcript), 'utf8');
+  log(`modus=${mode}`);
+  const r = await runDevin(devinArgs({ promptFile, model }), sessionDir);
+  if (!r.timedOut) {
+    const after = await listSessions(sessionDir);
+    const sid = newSessionId(beforeIds, after);
+    if (sid) {
+      writeSessionFile(sessionDir, { id: sid, missedSince: null });
+      log(`Sitzung ${sid} in session.json gespeichert.`);
+    } else {
+      log('Keine neue Sitzung gefunden – session.json nicht geschrieben.');
+    }
+  }
+  return { r, mode };
+}
+
+// One-off run in _oneoff for a locked session; deletes exactly the session it
+// created afterwards.
+async function runOneoff(userText, transcript, model) {
+  mkdirSync(ONEOFF_DIR, { recursive: true });
+  const beforeIds = new Set(((await listSessions(ONEOFF_DIR)) || []).map((s) => s.id));
+  const pf = join(ONEOFF_DIR, 'prompt.txt');
+  writeFileSync(pf, buildPrompt('fallback', userText, transcript), 'utf8');
+  const r = await runDevin(devinArgs({ promptFile: pf, model }), ONEOFF_DIR);
+  const created = ((await listSessions(ONEOFF_DIR)) || [])
+    .filter((s) => !beforeIds.has(s.id))
+    .map((s) => s.id);
+  for (const id of created) {
+    const rr = await runDevin(['rm', id, '--force'], ONEOFF_DIR);
+    if (rr.code !== 0) log(`devin rm ${id} fehlgeschlagen: ${tail(rr.err, 200)}`);
+    else log(`One-off-Sitzung ${id} gelöscht.`);
+  }
+  if (!created.length) log('One-off: keine neue Sitzung gefunden, nichts zu löschen.');
+  return r;
+}
+
 async function processJob(job) {
   const sessionDir = join(SESSIONS_DIR, job.chat_id);
   mkdirSync(sessionDir, { recursive: true });
-  const marker = join(sessionDir, '.started');
   const promptFile = join(sessionDir, 'prompt.txt');
 
   // user text = latest role='user' message of the chat created before the placeholder
@@ -258,31 +332,69 @@ async function processJob(job) {
   const history = await db(() =>
     supabase
       .from('messages')
-      .select('role, content')
+      .select('role, content, created_at')
       .eq('chat_id', job.chat_id)
       .eq('status', 'done')
       .lt('created_at', userMsg.created_at)
       .order('created_at', { ascending: true }),
   );
   const prior = history || [];
-  const hasHistory = prior.length > 0;
-  const started = existsSync(marker);
-  const cont = started; // -c only when this dir already has a session
-  const mode = cont ? 'continue' : hasHistory ? 'fallback' : 'fresh';
+  const transcript = prior.length ? buildTranscript(prior) : '';
 
   const model = job.model || 'swe-2-high';
-  const prompt = buildPrompt(mode, userText, hasHistory ? buildTranscript(prior) : '');
-  writeFileSync(promptFile, prompt, 'utf8');
-  log(`Job ${job.id} chat=${job.chat_id} modus=${mode} modell=${model} text="${userText.slice(0, 60)}"`);
+  let meta = readSessionFile(sessionDir);
 
-  let r = await runDevin(devinArgs({ promptFile, cont, model }), sessionDir);
+  // Migration: .started-Marker -> neueste Sitzung des Ordners übernehmen
+  if (!meta && existsSync(join(sessionDir, '.started'))) {
+    const newest = newestSession(await listSessions(sessionDir));
+    if (newest) {
+      meta = { id: newest.id, missedSince: null };
+      writeSessionFile(sessionDir, meta);
+      log(`Migration: Sitzung ${newest.id} für chat ${job.chat_id} übernommen.`);
+    }
+    try {
+      unlinkSync(join(sessionDir, '.started'));
+    } catch {}
+  }
 
-  // -c failed -> retry once without -c, transcript prepended
-  if (cont && !r.timedOut && r.code !== 0) {
-    log(`-c Lauf fehlgeschlagen (exit ${r.code}) – retry ohne -c mit Transkript.`);
-    const t = hasHistory ? buildTranscript(prior) : '';
-    writeFileSync(promptFile, buildPrompt('fallback', userText, t), 'utf8');
-    r = await runDevin(devinArgs({ promptFile, cont: false, model }), sessionDir);
+  let r;
+  let mode;
+  if (meta?.id) {
+    mode = meta.missedSince ? 'resume+sync' : 'resume';
+    const prompt = meta.missedSince
+      ? buildSyncPrompt(
+          buildTranscript(prior.filter((m) => m.created_at >= meta.missedSince)),
+          userText,
+        )
+      : userText;
+    writeFileSync(promptFile, prompt, 'utf8');
+    log(`Job ${job.id} chat=${job.chat_id} modus=${mode} sitzung=${meta.id} modell=${model} text="${userText.slice(0, 60)}"`);
+    for (let attempt = 1; ; attempt++) {
+      r = await runDevin(devinArgs({ promptFile, resumeId: meta.id, model }), sessionDir);
+      if (r.timedOut || r.code === 0 || !isLockedError(r.err)) break;
+      log(`Sitzung ${meta.id} gesperrt (Versuch ${attempt}/3).`);
+      if (attempt >= 3) break;
+      await sleep(5000);
+    }
+    if (!r.timedOut && r.code !== 0) {
+      if (isLockedError(r.err)) {
+        mode = 'oneoff';
+        log(`Sitzung ${meta.id} bleibt gesperrt – one-off-Lauf (modus=oneoff).`);
+        r = await runOneoff(userText, transcript, model);
+        if (!meta.missedSince) meta.missedSince = userMsg.created_at;
+        writeSessionFile(sessionDir, meta);
+      } else {
+        log(`-r ${meta.id} fehlgeschlagen (kein Lock): ${tail(r.err, 200)} – neue Sitzung.`);
+        try {
+          unlinkSync(join(sessionDir, 'session.json'));
+        } catch {}
+        meta = null;
+        ({ r, mode } = await runFresh(sessionDir, promptFile, userText, transcript, model, 'recreate'));
+      }
+    }
+  } else {
+    log(`Job ${job.id} chat=${job.chat_id} modell=${model} text="${userText.slice(0, 60)}"`);
+    ({ r, mode } = await runFresh(sessionDir, promptFile, userText, transcript, model));
   }
 
   if (r.timedOut) {
@@ -295,13 +407,16 @@ async function processJob(job) {
   if (r.code !== 0 || !answer) {
     const errMsg = tail(r.err, 500) || `devin exit ${r.code}, leere Antwort`;
     await finish(job.id, { status: 'error', error: errMsg });
-    log(`Job ${job.id} Fehler: ${errMsg.slice(0, 120)}`);
+    log(`Job ${job.id} Fehler (modus=${mode}): ${errMsg.slice(0, 120)}`);
     return;
   }
 
   await finish(job.id, { content: answer, status: 'done' });
-  if (!started) writeFileSync(marker, new Date().toISOString());
-  log(`Job ${job.id} fertig (${answer.length} Zeichen).`);
+  if (meta?.id && meta.missedSince && mode !== 'oneoff') {
+    meta.missedSince = null;
+    writeSessionFile(sessionDir, meta);
+  }
+  log(`Job ${job.id} fertig (modus=${mode}, ${answer.length} Zeichen).`);
 }
 
 // ---------- main ----------
