@@ -2,3 +2,4 @@ node_modules/
 worker/.env
 worker/sessions/
 worker/worker.log
+.devin/session-memo.md
