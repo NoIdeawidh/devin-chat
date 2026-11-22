@@ -117,3 +117,71 @@ export function tail(s, n = 500) {
   if (!s) return '';
   return s.length <= n ? s : s.slice(-n);
 }
+
+// --- Devin Remote: Bündelung + Payload-Splitting (siehe PROTOCOL.md) ---
+
+// Bündelt ACP-session/update-Events pro Session: Flush nach windowMs oder
+// sobald das gebündelte JSON maxBytes ueberschreitet.
+export class Bundler {
+  constructor({ onFlush, windowMs = 150, maxBytes = 4096, now = () => Date.now(), setT = setTimeout, clearT = clearTimeout } = {}) {
+    this.onFlush = onFlush;
+    this.windowMs = windowMs;
+    this.maxBytes = maxBytes;
+    this.now = now;
+    this.setT = setT;
+    this.clearT = clearT;
+    this.bufs = new Map(); // key -> {items, timer, deadline}
+  }
+  add(key, item) {
+    let b = this.bufs.get(key);
+    if (!b) {
+      b = { items: [], timer: null, deadline: this.now() + this.windowMs };
+      this.bufs.set(key, b);
+    }
+    b.items.push(item);
+    const bytes = JSON.stringify(b.items).length;
+    if (bytes >= this.maxBytes) {
+      this.flushKey(key);
+      return;
+    }
+    if (!b.timer) {
+      b.timer = this.setT(() => this.flushKey(key), Math.max(0, b.deadline - this.now()));
+    }
+  }
+  flushKey(key) {
+    const b = this.bufs.get(key);
+    if (!b) return;
+    this.bufs.delete(key);
+    if (b.timer) this.clearT(b.timer);
+    if (b.items.length) this.onFlush(key, b.items);
+  }
+  flushAll() {
+    for (const key of [...this.bufs.keys()]) this.flushKey(key);
+  }
+}
+
+// Serialisiertes Payload > maxBytes wird in Rows mit
+// {split:{id,seq,total},data:"<Slice>"} aufgeteilt.
+export const SPLIT_MAX_BYTES = 200 * 1024;
+
+export function splitPayload(payload, maxBytes = SPLIT_MAX_BYTES, idFn = () => crypto.randomUUID()) {
+  const s = JSON.stringify(payload);
+  if (s.length <= maxBytes) return [payload];
+  const id = idFn();
+  const total = Math.ceil(s.length / maxBytes);
+  const rows = [];
+  for (let seq = 0; seq < total; seq++) {
+    rows.push({ split: { id, seq, total }, data: s.slice(seq * maxBytes, (seq + 1) * maxBytes) });
+  }
+  return rows;
+}
+
+// Gegenstueck zu splitPayload: aus gesammelten Split-Rows das Payload
+// zurueckbauen; null solange Teile fehlen.
+export function assembleParts(parts) {
+  if (!parts?.length) return null;
+  const total = parts[0].split.total;
+  if (parts.length < total) return null;
+  const ordered = [...parts].sort((a, b) => a.split.seq - b.split.seq);
+  return JSON.parse(ordered.map((p) => p.data).join(''));
+}
