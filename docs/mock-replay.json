@@ -1,0 +1,5208 @@
+{
+ "sessions": [
+  {
+   "sessionId": "mock-sawfish",
+   "cwd": "C:\\Users\\HenriB\\Projects\\devin-chat\\probe",
+   "title": "Merke dir die Zahl 4711. Antworte nur: ok",
+   "updatedAt": "2026-11-19T08:14:25+00:00",
+   "_meta": {
+    "cognition.ai/createdAt": "2026-11-19T08:14:09.000Z",
+    "cognition.ai/hasUserMessages": true,
+    "cognition.ai/planFilePath": "C:\\Users\\HenriB\\.devin\\plans\\plan-4735c7f50c39a736.md",
+    "cognition.ai/isLocked": false,
+    "cognition.ai/lockHolderPid": null
+   }
+  },
+  {
+   "sessionId": "mock-marmot",
+   "cwd": "C:\\Users\\HenriB\\Projects\\devin-chat",
+   "title": "Fernbedienung fuer Devin bauen",
+   "updatedAt": "2026-11-19T08:14:25+00:00",
+   "_meta": {
+    "cognition.ai/createdAt": "2026-11-19T08:14:09.000Z",
+    "cognition.ai/hasUserMessages": true,
+    "cognition.ai/planFilePath": "C:\\Users\\HenriB\\.devin\\plans\\plan-4735c7f50c39a736.md",
+    "cognition.ai/isLocked": false,
+    "cognition.ai/lockHolderPid": null
+   }
+  },
+  {
+   "sessionId": "mock-locked",
+   "cwd": "C:\\Users\\HenriB",
+   "title": "Auf dem PC geoeffnete Sitzung",
+   "updatedAt": "2026-11-19T08:14:25+00:00",
+   "_meta": {
+    "cognition.ai/createdAt": "2026-11-19T08:14:09.000Z",
+    "cognition.ai/hasUserMessages": true,
+    "cognition.ai/planFilePath": "C:\\Users\\HenriB\\.devin\\plans\\plan-4735c7f50c39a736.md",
+    "cognition.ai/isLocked": true,
+    "cognition.ai/lockHolderPid": 4242
+   }
+  },
+  {
+   "sessionId": "mock-brain",
+   "cwd": "C:\\Users\\HenriB\\iCloudDrive\\iCloud~md~obsidian\\second brain",
+   "title": "Wiki linten und indexieren",
+   "updatedAt": "2026-11-19T08:14:25+00:00",
+   "_meta": {
+    "cognition.ai/createdAt": "2026-11-19T08:14:09.000Z",
+    "cognition.ai/hasUserMessages": true,
+    "cognition.ai/planFilePath": "C:\\Users\\HenriB\\.devin\\plans\\plan-4735c7f50c39a736.md",
+    "cognition.ai/isLocked": false,
+    "cognition.ai/lockHolderPid": null
+   }
+  }
+ ],
+ "newResult": {
+  "sessionId": "mock-neu",
+  "modes": {
+   "currentModeId": "accept-edits",
+   "availableModes": [
+    {
+     "id": "accept-edits",
+     "name": "Code"
+    },
+    {
+     "id": "smart",
+     "name": "Smart"
+    },
+    {
+     "id": "ask",
+     "name": "Ask"
+    },
+    {
+     "id": "plan",
+     "name": "Plan"
+    },
+    {
+     "id": "bypass",
+     "name": "Bypass Permissions"
+    }
+   ]
+  },
+  "configOptions": [
+   {
+    "id": "mode",
+    "name": "Session Mode",
+    "category": "mode",
+    "type": "select",
+    "currentValue": "accept-edits",
+    "options": [
+     {
+      "value": "accept-edits",
+      "name": "Code",
+      "description": "Write and edit code",
+      "_meta": {
+       "cognition.ai/icon": "code"
+      }
+     },
+     {
+      "value": "smart",
+      "name": "Smart",
+      "description": "Auto-approve actions the model judges safe",
+      "_meta": {
+       "cognition.ai/icon": "sparkles"
+      }
+     },
+     {
+      "value": "ask",
+      "name": "Ask",
+      "description": "Answer questions without code changes",
+      "_meta": {
+       "cognition.ai/icon": "message-circle"
+      }
+     },
+     {
+      "value": "plan",
+      "name": "Plan",
+      "description": "Plan changes before implementing",
+      "_meta": {
+       "cognition.ai/icon": "file-text"
+      }
+     },
+     {
+      "value": "bypass",
+      "name": "Bypass Permissions",
+      "description": "Auto-approve all tool calls unless your organization's policy requires approval",
+      "_meta": {
+       "cognition.ai/icon": "shield-off"
+      }
+     }
+    ]
+   },
+   {
+    "id": "model",
+    "name": "Model",
+    "description": "AI model to use",
+    "category": "model",
+    "type": "select",
+    "currentValue": "adaptive",
+    "options": [
+     {
+      "value": "adaptive",
+      "name": "Adaptive",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "swe-2-high",
+      "name": "SWE-2",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "swe-2-flash-medium",
+      "name": "SWE-2 Flash",
+      "_meta": {
+       "cognition.ai/supportsImages": false
+      }
+     },
+     {
+      "value": "claude-fable-5-2-medium",
+      "name": "Claude Fable 5.2",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-opus-5-5-medium",
+      "name": "Claude Opus 5.5",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-6-2-astra-medium",
+      "name": "GPT-6.2 Astra",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-6-astra-medium",
+      "name": "GPT-6 Astra",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-6-sol-medium",
+      "name": "GPT-6 Sol",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-6-luna-medium",
+      "name": "GPT-6 Luna",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gemini-4-carbon-medium",
+      "name": "Gemini 4 Carbon",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "kimi-k3-1-pro-max",
+      "name": "Kimi K3.1 Pro",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "glm-5-3-max",
+      "name": "GLM-5.3",
+      "_meta": {
+       "cognition.ai/supportsImages": false
+      }
+     },
+     {
+      "value": "claude-sonnet-5-5-medium",
+      "name": "Claude Sonnet 5.5",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gemini-3-8-flash-medium",
+      "name": "Gemini 3.8 Flash",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-opus-4-7-medium",
+      "name": "Claude Opus 4.7",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-opus-4-8-medium",
+      "name": "Claude Opus 4.8",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-opus-5-medium",
+      "name": "Claude Opus 5",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-5-fable-medium",
+      "name": "Claude Fable 5",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-fable-5-1-medium",
+      "name": "Claude Fable 5.1",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-sonnet-5-medium",
+      "name": "Claude Sonnet 5",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-haiku-5-5-medium",
+      "name": "Claude Haiku 5.5",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gemini-3-5-flash-medium",
+      "name": "Gemini 3.5 Flash",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gemini-3-6-flash-medium",
+      "name": "Gemini 3.6 Flash",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gemini-3-7-flash-medium",
+      "name": "Gemini 3.7 Flash",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gemini-4-argon-medium",
+      "name": "Gemini 4 Argon",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gemini-4-hydrogen-medium",
+      "name": "Gemini 4 Hydrogen",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gemini-4-neon-high",
+      "name": "Gemini 4 Neon",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-5-6-sol-medium",
+      "name": "GPT-5.6 Sol",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-5-6-terra-medium",
+      "name": "GPT-5.6 Terra",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-5-6-luna-medium",
+      "name": "GPT-5.6 Luna",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-6-2-sol-medium",
+      "name": "GPT-6.2 Sol",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-6-1-sol-medium",
+      "name": "GPT-6.1 Sol",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-6-1-terra-medium",
+      "name": "GPT-6.1 Terra",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "glm-5-2",
+      "name": "GLM-5.2 High",
+      "_meta": {
+       "cognition.ai/supportsImages": false
+      }
+     },
+     {
+      "value": "glm-5-2-1m",
+      "name": "GLM-5.2 High 1M",
+      "_meta": {
+       "cognition.ai/supportsImages": false
+      }
+     },
+     {
+      "value": "grok-4-6-medium",
+      "name": "Grok 4.6",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "grok-4-7-medium",
+      "name": "Grok 4.7",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "muse-wonder-1-0-high",
+      "name": "Muse Wonder",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "nemotron-3-5-super-high",
+      "name": "Nemotron 3.5 Super",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "nemotron-3-5-lightning-high",
+      "name": "Nemotron 3.5 Lightning",
+      "_meta": {
+       "cognition.ai/supportsImages": false
+      }
+     },
+     {
+      "value": "kimi-k3-high",
+      "name": "Kimi K3",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "glm-5-3-flash-max",
+      "name": "GLM-5.3 Flash",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "deepseek-v4-flash-high",
+      "name": "DeepSeek V4 Flash",
+      "_meta": {
+       "cognition.ai/supportsImages": false
+      }
+     },
+     {
+      "value": "deepseek-v4-1-flash-1017-high",
+      "name": "DeepSeek V4.1 Flash",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "swe-1-7-medium",
+      "name": "SWE-1.7",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-5-medium-sidekick-swe-2-medium",
+      "name": "Fusion (Claude Opus 5.5 Medium + SWE-2 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-2-medium-sidekick-swe-2-medium",
+      "name": "Fusion (Claude Fable 5.2 Medium + SWE-2 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-1-medium-sidekick-swe-2-medium",
+      "name": "Fusion (Claude Fable 5.1 Medium + SWE-2 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-5-6-sol-high-sidekick-swe-2-medium",
+      "name": "Fusion (GPT-5.6 Sol High Thinking + SWE-2 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-high-sidekick-swe-2-medium",
+      "name": "Fusion (Claude Opus 5 High + SWE-2 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-sonnet-5-5-high-sidekick-swe-2-medium",
+      "name": "Fusion (Claude Sonnet 5.5 High + SWE-2 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-astra-high-sidekick-swe-2-medium",
+      "name": "Fusion (GPT-6.2 Astra High Thinking + SWE-2 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-astra-high-sidekick-swe-2-medium",
+      "name": "Fusion (GPT-6 Astra High Thinking + SWE-2 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-sol-high-sidekick-swe-2-medium",
+      "name": "Fusion (GPT-6 Sol High Thinking + SWE-2 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-sol-high-sidekick-swe-2-medium",
+      "name": "Fusion (GPT-6.2 Sol High Thinking + SWE-2 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-1-sol-high-sidekick-swe-2-medium",
+      "name": "Fusion (GPT-6.1 Sol High Thinking + SWE-2 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-5-medium-sidekick-gpt-5-6-luna-high",
+      "name": "Fusion (Claude Opus 5.5 Medium + GPT-5.6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-2-medium-sidekick-gpt-5-6-luna-high",
+      "name": "Fusion (Claude Fable 5.2 Medium + GPT-5.6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-1-medium-sidekick-gpt-5-6-luna-high",
+      "name": "Fusion (Claude Fable 5.1 Medium + GPT-5.6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-5-6-sol-high-sidekick-gpt-5-6-luna-high",
+      "name": "Fusion (GPT-5.6 Sol High Thinking + GPT-5.6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-high-sidekick-gpt-5-6-luna-high",
+      "name": "Fusion (Claude Opus 5 High + GPT-5.6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-sonnet-5-5-high-sidekick-gpt-5-6-luna-high",
+      "name": "Fusion (Claude Sonnet 5.5 High + GPT-5.6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-astra-high-sidekick-gpt-5-6-luna-high",
+      "name": "Fusion (GPT-6.2 Astra High Thinking + GPT-5.6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-astra-high-sidekick-gpt-5-6-luna-high",
+      "name": "Fusion (GPT-6 Astra High Thinking + GPT-5.6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-sol-high-sidekick-gpt-5-6-luna-high",
+      "name": "Fusion (GPT-6 Sol High Thinking + GPT-5.6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-sol-high-sidekick-gpt-5-6-luna-high",
+      "name": "Fusion (GPT-6.2 Sol High Thinking + GPT-5.6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-1-sol-high-sidekick-gpt-5-6-luna-high",
+      "name": "Fusion (GPT-6.1 Sol High Thinking + GPT-5.6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-5-medium-sidekick-gpt-6-luna-high",
+      "name": "Fusion (Claude Opus 5.5 Medium + GPT-6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-2-medium-sidekick-gpt-6-luna-high",
+      "name": "Fusion (Claude Fable 5.2 Medium + GPT-6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-1-medium-sidekick-gpt-6-luna-high",
+      "name": "Fusion (Claude Fable 5.1 Medium + GPT-6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-5-6-sol-high-sidekick-gpt-6-luna-high",
+      "name": "Fusion (GPT-5.6 Sol High Thinking + GPT-6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-high-sidekick-gpt-6-luna-high",
+      "name": "Fusion (Claude Opus 5 High + GPT-6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-sonnet-5-5-high-sidekick-gpt-6-luna-high",
+      "name": "Fusion (Claude Sonnet 5.5 High + GPT-6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-astra-high-sidekick-gpt-6-luna-high",
+      "name": "Fusion (GPT-6.2 Astra High Thinking + GPT-6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-astra-high-sidekick-gpt-6-luna-high",
+      "name": "Fusion (GPT-6 Astra High Thinking + GPT-6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-sol-high-sidekick-gpt-6-luna-high",
+      "name": "Fusion (GPT-6 Sol High Thinking + GPT-6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-sol-high-sidekick-gpt-6-luna-high",
+      "name": "Fusion (GPT-6.2 Sol High Thinking + GPT-6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-1-sol-high-sidekick-gpt-6-luna-high",
+      "name": "Fusion (GPT-6.1 Sol High Thinking + GPT-6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-5-medium-sidekick-gpt-6-1-terra-high",
+      "name": "Fusion (Claude Opus 5.5 Medium + GPT-6.1 Terra High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-2-medium-sidekick-gpt-6-1-terra-high",
+      "name": "Fusion (Claude Fable 5.2 Medium + GPT-6.1 Terra High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-1-medium-sidekick-gpt-6-1-terra-high",
+      "name": "Fusion (Claude Fable 5.1 Medium + GPT-6.1 Terra High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-5-6-sol-high-sidekick-gpt-6-1-terra-high",
+      "name": "Fusion (GPT-5.6 Sol High Thinking + GPT-6.1 Terra High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-high-sidekick-gpt-6-1-terra-high",
+      "name": "Fusion (Claude Opus 5 High + GPT-6.1 Terra High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-sonnet-5-5-high-sidekick-gpt-6-1-terra-high",
+      "name": "Fusion (Claude Sonnet 5.5 High + GPT-6.1 Terra High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-astra-high-sidekick-gpt-6-1-terra-high",
+      "name": "Fusion (GPT-6.2 Astra High Thinking + GPT-6.1 Terra High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-astra-high-sidekick-gpt-6-1-terra-high",
+      "name": "Fusion (GPT-6 Astra High Thinking + GPT-6.1 Terra High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-sol-high-sidekick-gpt-6-1-terra-high",
+      "name": "Fusion (GPT-6 Sol High Thinking + GPT-6.1 Terra High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-sol-high-sidekick-gpt-6-1-terra-high",
+      "name": "Fusion (GPT-6.2 Sol High Thinking + GPT-6.1 Terra High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-1-sol-high-sidekick-gpt-6-1-terra-high",
+      "name": "Fusion (GPT-6.1 Sol High Thinking + GPT-6.1 Terra High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-5-medium-sidekick-glm-5-2",
+      "name": "Fusion (Claude Opus 5.5 Medium + GLM-5.2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-2-medium-sidekick-glm-5-2",
+      "name": "Fusion (Claude Fable 5.2 Medium + GLM-5.2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-1-medium-sidekick-glm-5-2",
+      "name": "Fusion (Claude Fable 5.1 Medium + GLM-5.2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-5-6-sol-high-sidekick-glm-5-2",
+      "name": "Fusion (GPT-5.6 Sol High Thinking + GLM-5.2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-high-sidekick-glm-5-2",
+      "name": "Fusion (Claude Opus 5 High + GLM-5.2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-sonnet-5-5-high-sidekick-glm-5-2",
+      "name": "Fusion (Claude Sonnet 5.5 High + GLM-5.2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-astra-high-sidekick-glm-5-2",
+      "name": "Fusion (GPT-6.2 Astra High Thinking + GLM-5.2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-astra-high-sidekick-glm-5-2",
+      "name": "Fusion (GPT-6 Astra High Thinking + GLM-5.2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-sol-high-sidekick-glm-5-2",
+      "name": "Fusion (GPT-6 Sol High Thinking + GLM-5.2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-sol-high-sidekick-glm-5-2",
+      "name": "Fusion (GPT-6.2 Sol High Thinking + GLM-5.2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-1-sol-high-sidekick-glm-5-2",
+      "name": "Fusion (GPT-6.1 Sol High Thinking + GLM-5.2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-5-medium-sidekick-gpt-5-6-sol-high",
+      "name": "Fusion (Claude Opus 5.5 Medium + GPT-5.6 Sol High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-2-medium-sidekick-gpt-5-6-sol-high",
+      "name": "Fusion (Claude Fable 5.2 Medium + GPT-5.6 Sol High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-1-medium-sidekick-gpt-5-6-sol-high",
+      "name": "Fusion (Claude Fable 5.1 Medium + GPT-5.6 Sol High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-high-sidekick-gpt-5-6-sol-high",
+      "name": "Fusion (Claude Opus 5 High + GPT-5.6 Sol High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-sonnet-5-5-high-sidekick-gpt-5-6-sol-high",
+      "name": "Fusion (Claude Sonnet 5.5 High + GPT-5.6 Sol High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-astra-high-sidekick-gpt-5-6-sol-high",
+      "name": "Fusion (GPT-6.2 Astra High Thinking + GPT-5.6 Sol High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-astra-high-sidekick-gpt-5-6-sol-high",
+      "name": "Fusion (GPT-6 Astra High Thinking + GPT-5.6 Sol High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-sol-high-sidekick-gpt-5-6-sol-high",
+      "name": "Fusion (GPT-6 Sol High Thinking + GPT-5.6 Sol High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-sol-high-sidekick-gpt-5-6-sol-high",
+      "name": "Fusion (GPT-6.2 Sol High Thinking + GPT-5.6 Sol High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-1-sol-high-sidekick-gpt-5-6-sol-high",
+      "name": "Fusion (GPT-6.1 Sol High Thinking + GPT-5.6 Sol High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-5-medium-sidekick-swe-2-high",
+      "name": "Fusion (Claude Opus 5.5 Medium + SWE-2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-2-medium-sidekick-swe-2-high",
+      "name": "Fusion (Claude Fable 5.2 Medium + SWE-2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-1-medium-sidekick-swe-2-high",
+      "name": "Fusion (Claude Fable 5.1 Medium + SWE-2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-5-6-sol-high-sidekick-swe-2-high",
+      "name": "Fusion (GPT-5.6 Sol High Thinking + SWE-2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-high-sidekick-swe-2-high",
+      "name": "Fusion (Claude Opus 5 High + SWE-2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-sonnet-5-5-high-sidekick-swe-2-high",
+      "name": "Fusion (Claude Sonnet 5.5 High + SWE-2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-astra-high-sidekick-swe-2-high",
+      "name": "Fusion (GPT-6.2 Astra High Thinking + SWE-2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-astra-high-sidekick-swe-2-high",
+      "name": "Fusion (GPT-6 Astra High Thinking + SWE-2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-sol-high-sidekick-swe-2-high",
+      "name": "Fusion (GPT-6 Sol High Thinking + SWE-2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-sol-high-sidekick-swe-2-high",
+      "name": "Fusion (GPT-6.2 Sol High Thinking + SWE-2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-1-sol-high-sidekick-swe-2-high",
+      "name": "Fusion (GPT-6.1 Sol High Thinking + SWE-2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-5-medium-sidekick-swe-2-flash-max",
+      "name": "Fusion (Claude Opus 5.5 Medium + SWE-2 Flash Max)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-2-medium-sidekick-swe-2-flash-max",
+      "name": "Fusion (Claude Fable 5.2 Medium + SWE-2 Flash Max)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-1-medium-sidekick-swe-2-flash-max",
+      "name": "Fusion (Claude Fable 5.1 Medium + SWE-2 Flash Max)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-5-6-sol-high-sidekick-swe-2-flash-max",
+      "name": "Fusion (GPT-5.6 Sol High Thinking + SWE-2 Flash Max)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-high-sidekick-swe-2-flash-max",
+      "name": "Fusion (Claude Opus 5 High + SWE-2 Flash Max)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-sonnet-5-5-high-sidekick-swe-2-flash-max",
+      "name": "Fusion (Claude Sonnet 5.5 High + SWE-2 Flash Max)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-astra-high-sidekick-swe-2-flash-max",
+      "name": "Fusion (GPT-6.2 Astra High Thinking + SWE-2 Flash Max)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-astra-high-sidekick-swe-2-flash-max",
+      "name": "Fusion (GPT-6 Astra High Thinking + SWE-2 Flash Max)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-sol-high-sidekick-swe-2-flash-max",
+      "name": "Fusion (GPT-6 Sol High Thinking + SWE-2 Flash Max)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-sol-high-sidekick-swe-2-flash-max",
+      "name": "Fusion (GPT-6.2 Sol High Thinking + SWE-2 Flash Max)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-1-sol-high-sidekick-swe-2-flash-max",
+      "name": "Fusion (GPT-6.1 Sol High Thinking + SWE-2 Flash Max)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-5-medium-sidekick-claude-sonnet-5-5-medium",
+      "name": "Fusion (Claude Opus 5.5 Medium + Claude Sonnet 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-2-medium-sidekick-claude-sonnet-5-5-medium",
+      "name": "Fusion (Claude Fable 5.2 Medium + Claude Sonnet 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-1-medium-sidekick-claude-sonnet-5-5-medium",
+      "name": "Fusion (Claude Fable 5.1 Medium + Claude Sonnet 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-5-6-sol-high-sidekick-claude-sonnet-5-5-medium",
+      "name": "Fusion (GPT-5.6 Sol High Thinking + Claude Sonnet 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-high-sidekick-claude-sonnet-5-5-medium",
+      "name": "Fusion (Claude Opus 5 High + Claude Sonnet 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-astra-high-sidekick-claude-sonnet-5-5-medium",
+      "name": "Fusion (GPT-6.2 Astra High Thinking + Claude Sonnet 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-astra-high-sidekick-claude-sonnet-5-5-medium",
+      "name": "Fusion (GPT-6 Astra High Thinking + Claude Sonnet 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-sol-high-sidekick-claude-sonnet-5-5-medium",
+      "name": "Fusion (GPT-6 Sol High Thinking + Claude Sonnet 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-sol-high-sidekick-claude-sonnet-5-5-medium",
+      "name": "Fusion (GPT-6.2 Sol High Thinking + Claude Sonnet 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-1-sol-high-sidekick-claude-sonnet-5-5-medium",
+      "name": "Fusion (GPT-6.1 Sol High Thinking + Claude Sonnet 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-5-medium-sidekick-claude-haiku-5-5-medium",
+      "name": "Fusion (Claude Opus 5.5 Medium + Claude Haiku 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-2-medium-sidekick-claude-haiku-5-5-medium",
+      "name": "Fusion (Claude Fable 5.2 Medium + Claude Haiku 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-1-medium-sidekick-claude-haiku-5-5-medium",
+      "name": "Fusion (Claude Fable 5.1 Medium + Claude Haiku 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-5-6-sol-high-sidekick-claude-haiku-5-5-medium",
+      "name": "Fusion (GPT-5.6 Sol High Thinking + Claude Haiku 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-high-sidekick-claude-haiku-5-5-medium",
+      "name": "Fusion (Claude Opus 5 High + Claude Haiku 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-sonnet-5-5-high-sidekick-claude-haiku-5-5-medium",
+      "name": "Fusion (Claude Sonnet 5.5 High + Claude Haiku 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-astra-high-sidekick-claude-haiku-5-5-medium",
+      "name": "Fusion (GPT-6.2 Astra High Thinking + Claude Haiku 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-astra-high-sidekick-claude-haiku-5-5-medium",
+      "name": "Fusion (GPT-6 Astra High Thinking + Claude Haiku 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-sol-high-sidekick-claude-haiku-5-5-medium",
+      "name": "Fusion (GPT-6 Sol High Thinking + Claude Haiku 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-sol-high-sidekick-claude-haiku-5-5-medium",
+      "name": "Fusion (GPT-6.2 Sol High Thinking + Claude Haiku 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-1-sol-high-sidekick-claude-haiku-5-5-medium",
+      "name": "Fusion (GPT-6.1 Sol High Thinking + Claude Haiku 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-opus-4-6",
+      "name": "Claude Opus 4.6",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-opus-4-6-thinking",
+      "name": "Claude Opus 4.6 Thinking",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-opus-4-6-1m",
+      "name": "Claude Opus 4.6 1M",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-opus-4-6-thinking-1m",
+      "name": "Claude Opus 4.6 Thinking 1M",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-5-4-none",
+      "name": "GPT-5.4",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-5-5-low",
+      "name": "GPT-5.5",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-5-4-mini-low",
+      "name": "GPT-5.4 Mini",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-sonnet-4-6",
+      "name": "Claude Sonnet 4.6",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-sonnet-4-6-thinking",
+      "name": "Claude Sonnet 4.6 Thinking",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-sonnet-4-6-1m",
+      "name": "Claude Sonnet 4.6 1M",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-sonnet-4-6-thinking-1m",
+      "name": "Claude Sonnet 4.6 Thinking 1M",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "kimi-k2-6",
+      "name": "Kimi K2.6",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "kimi-k2-7",
+      "name": "Kimi K2.7",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "nemotron-3-ultra-high",
+      "name": "Nemotron 3 Ultra",
+      "_meta": {
+       "cognition.ai/supportsImages": false
+      }
+     },
+     {
+      "value": "swe-1-6",
+      "name": "SWE-1.6",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "deepseek-v4-pro-high",
+      "name": "DeepSeek V4 Pro",
+      "_meta": {
+       "cognition.ai/supportsImages": false
+      }
+     }
+    ]
+   }
+  ],
+  "_meta": {
+   "cognition.ai/planFilePath": "C:\\Users\\HenriB\\.devin\\plans\\plan-90f699eb0fae1f42.md",
+   "cognition.ai/isLocked": false,
+   "cognition.ai/lockHolderPid": null
+  }
+ },
+ "replay": [
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "config_option_update",
+    "configOptions": [
+     {
+      "id": "mode",
+      "name": "Session Mode",
+      "category": "mode",
+      "type": "select",
+      "currentValue": "accept-edits",
+      "options": [
+       {
+        "value": "accept-edits",
+        "name": "Code",
+        "description": "Write and edit code",
+        "_meta": {
+         "cognition.ai/icon": "code"
+        }
+       },
+       {
+        "value": "smart",
+        "name": "Smart",
+        "description": "Auto-approve actions the model judges safe",
+        "_meta": {
+         "cognition.ai/icon": "sparkles"
+        }
+       },
+       {
+        "value": "ask",
+        "name": "Ask",
+        "description": "Answer questions without code changes",
+        "_meta": {
+         "cognition.ai/icon": "message-circle"
+        }
+       },
+       {
+        "value": "plan",
+        "name": "Plan",
+        "description": "Plan changes before implementing",
+        "_meta": {
+         "cognition.ai/icon": "file-text"
+        }
+       },
+       {
+        "value": "bypass",
+        "name": "Bypass Permissions",
+        "description": "Auto-approve all tool calls unless your organization's policy requires approval",
+        "_meta": {
+         "cognition.ai/icon": "shield-off"
+        }
+       }
+      ]
+     },
+     {
+      "id": "model",
+      "name": "Model",
+      "description": "AI model to use",
+      "category": "model",
+      "type": "select",
+      "currentValue": "adaptive",
+      "options": [
+       {
+        "value": "adaptive",
+        "name": "Adaptive",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "swe-2-high",
+        "name": "SWE-2",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "swe-2-flash-medium",
+        "name": "SWE-2 Flash",
+        "_meta": {
+         "cognition.ai/supportsImages": false
+        }
+       },
+       {
+        "value": "claude-fable-5-2-medium",
+        "name": "Claude Fable 5.2",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "claude-opus-5-5-medium",
+        "name": "Claude Opus 5.5",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "gpt-6-2-astra-medium",
+        "name": "GPT-6.2 Astra",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "gpt-6-astra-medium",
+        "name": "GPT-6 Astra",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "gpt-6-sol-medium",
+        "name": "GPT-6 Sol",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "gpt-6-luna-medium",
+        "name": "GPT-6 Luna",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "gemini-4-carbon-medium",
+        "name": "Gemini 4 Carbon",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "kimi-k3-1-pro-max",
+        "name": "Kimi K3.1 Pro",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "glm-5-3-max",
+        "name": "GLM-5.3",
+        "_meta": {
+         "cognition.ai/supportsImages": false
+        }
+       },
+       {
+        "value": "claude-sonnet-5-5-medium",
+        "name": "Claude Sonnet 5.5",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "gemini-3-8-flash-medium",
+        "name": "Gemini 3.8 Flash",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "claude-opus-4-7-medium",
+        "name": "Claude Opus 4.7",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "claude-opus-4-8-medium",
+        "name": "Claude Opus 4.8",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "claude-opus-5-medium",
+        "name": "Claude Opus 5",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "claude-5-fable-medium",
+        "name": "Claude Fable 5",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "claude-fable-5-1-medium",
+        "name": "Claude Fable 5.1",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "claude-sonnet-5-medium",
+        "name": "Claude Sonnet 5",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "claude-haiku-5-5-medium",
+        "name": "Claude Haiku 5.5",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "gemini-3-5-flash-medium",
+        "name": "Gemini 3.5 Flash",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "gemini-3-6-flash-medium",
+        "name": "Gemini 3.6 Flash",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "gemini-3-7-flash-medium",
+        "name": "Gemini 3.7 Flash",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "gemini-4-argon-medium",
+        "name": "Gemini 4 Argon",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "gemini-4-hydrogen-medium",
+        "name": "Gemini 4 Hydrogen",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "gemini-4-neon-high",
+        "name": "Gemini 4 Neon",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "gpt-5-6-sol-medium",
+        "name": "GPT-5.6 Sol",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "gpt-5-6-terra-medium",
+        "name": "GPT-5.6 Terra",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "gpt-5-6-luna-medium",
+        "name": "GPT-5.6 Luna",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "gpt-6-2-sol-medium",
+        "name": "GPT-6.2 Sol",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "gpt-6-1-sol-medium",
+        "name": "GPT-6.1 Sol",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "gpt-6-1-terra-medium",
+        "name": "GPT-6.1 Terra",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "glm-5-2",
+        "name": "GLM-5.2 High",
+        "_meta": {
+         "cognition.ai/supportsImages": false
+        }
+       },
+       {
+        "value": "glm-5-2-1m",
+        "name": "GLM-5.2 High 1M",
+        "_meta": {
+         "cognition.ai/supportsImages": false
+        }
+       },
+       {
+        "value": "grok-4-6-medium",
+        "name": "Grok 4.6",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "grok-4-7-medium",
+        "name": "Grok 4.7",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "muse-wonder-1-0-high",
+        "name": "Muse Wonder",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "nemotron-3-5-super-high",
+        "name": "Nemotron 3.5 Super",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "nemotron-3-5-lightning-high",
+        "name": "Nemotron 3.5 Lightning",
+        "_meta": {
+         "cognition.ai/supportsImages": false
+        }
+       },
+       {
+        "value": "kimi-k3-high",
+        "name": "Kimi K3",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "glm-5-3-flash-max",
+        "name": "GLM-5.3 Flash",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "deepseek-v4-flash-high",
+        "name": "DeepSeek V4 Flash",
+        "_meta": {
+         "cognition.ai/supportsImages": false
+        }
+       },
+       {
+        "value": "deepseek-v4-1-flash-1017-high",
+        "name": "DeepSeek V4.1 Flash",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "swe-1-7-medium",
+        "name": "SWE-1.7",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-opus-5-5-medium-sidekick-swe-2-medium",
+        "name": "Fusion (Claude Opus 5.5 Medium + SWE-2 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-fable-5-2-medium-sidekick-swe-2-medium",
+        "name": "Fusion (Claude Fable 5.2 Medium + SWE-2 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-fable-5-1-medium-sidekick-swe-2-medium",
+        "name": "Fusion (Claude Fable 5.1 Medium + SWE-2 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-5-6-sol-high-sidekick-swe-2-medium",
+        "name": "Fusion (GPT-5.6 Sol High Thinking + SWE-2 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-opus-5-high-sidekick-swe-2-medium",
+        "name": "Fusion (Claude Opus 5 High + SWE-2 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-sonnet-5-5-high-sidekick-swe-2-medium",
+        "name": "Fusion (Claude Sonnet 5.5 High + SWE-2 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-2-astra-high-sidekick-swe-2-medium",
+        "name": "Fusion (GPT-6.2 Astra High Thinking + SWE-2 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-astra-high-sidekick-swe-2-medium",
+        "name": "Fusion (GPT-6 Astra High Thinking + SWE-2 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-sol-high-sidekick-swe-2-medium",
+        "name": "Fusion (GPT-6 Sol High Thinking + SWE-2 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-2-sol-high-sidekick-swe-2-medium",
+        "name": "Fusion (GPT-6.2 Sol High Thinking + SWE-2 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-1-sol-high-sidekick-swe-2-medium",
+        "name": "Fusion (GPT-6.1 Sol High Thinking + SWE-2 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-opus-5-5-medium-sidekick-gpt-5-6-luna-high",
+        "name": "Fusion (Claude Opus 5.5 Medium + GPT-5.6 Luna High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-fable-5-2-medium-sidekick-gpt-5-6-luna-high",
+        "name": "Fusion (Claude Fable 5.2 Medium + GPT-5.6 Luna High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-fable-5-1-medium-sidekick-gpt-5-6-luna-high",
+        "name": "Fusion (Claude Fable 5.1 Medium + GPT-5.6 Luna High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-5-6-sol-high-sidekick-gpt-5-6-luna-high",
+        "name": "Fusion (GPT-5.6 Sol High Thinking + GPT-5.6 Luna High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-opus-5-high-sidekick-gpt-5-6-luna-high",
+        "name": "Fusion (Claude Opus 5 High + GPT-5.6 Luna High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-sonnet-5-5-high-sidekick-gpt-5-6-luna-high",
+        "name": "Fusion (Claude Sonnet 5.5 High + GPT-5.6 Luna High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-2-astra-high-sidekick-gpt-5-6-luna-high",
+        "name": "Fusion (GPT-6.2 Astra High Thinking + GPT-5.6 Luna High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-astra-high-sidekick-gpt-5-6-luna-high",
+        "name": "Fusion (GPT-6 Astra High Thinking + GPT-5.6 Luna High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-sol-high-sidekick-gpt-5-6-luna-high",
+        "name": "Fusion (GPT-6 Sol High Thinking + GPT-5.6 Luna High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-2-sol-high-sidekick-gpt-5-6-luna-high",
+        "name": "Fusion (GPT-6.2 Sol High Thinking + GPT-5.6 Luna High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-1-sol-high-sidekick-gpt-5-6-luna-high",
+        "name": "Fusion (GPT-6.1 Sol High Thinking + GPT-5.6 Luna High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-opus-5-5-medium-sidekick-gpt-6-luna-high",
+        "name": "Fusion (Claude Opus 5.5 Medium + GPT-6 Luna High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-fable-5-2-medium-sidekick-gpt-6-luna-high",
+        "name": "Fusion (Claude Fable 5.2 Medium + GPT-6 Luna High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-fable-5-1-medium-sidekick-gpt-6-luna-high",
+        "name": "Fusion (Claude Fable 5.1 Medium + GPT-6 Luna High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-5-6-sol-high-sidekick-gpt-6-luna-high",
+        "name": "Fusion (GPT-5.6 Sol High Thinking + GPT-6 Luna High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-opus-5-high-sidekick-gpt-6-luna-high",
+        "name": "Fusion (Claude Opus 5 High + GPT-6 Luna High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-sonnet-5-5-high-sidekick-gpt-6-luna-high",
+        "name": "Fusion (Claude Sonnet 5.5 High + GPT-6 Luna High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-2-astra-high-sidekick-gpt-6-luna-high",
+        "name": "Fusion (GPT-6.2 Astra High Thinking + GPT-6 Luna High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-astra-high-sidekick-gpt-6-luna-high",
+        "name": "Fusion (GPT-6 Astra High Thinking + GPT-6 Luna High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-sol-high-sidekick-gpt-6-luna-high",
+        "name": "Fusion (GPT-6 Sol High Thinking + GPT-6 Luna High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-2-sol-high-sidekick-gpt-6-luna-high",
+        "name": "Fusion (GPT-6.2 Sol High Thinking + GPT-6 Luna High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-1-sol-high-sidekick-gpt-6-luna-high",
+        "name": "Fusion (GPT-6.1 Sol High Thinking + GPT-6 Luna High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-opus-5-5-medium-sidekick-gpt-6-1-terra-high",
+        "name": "Fusion (Claude Opus 5.5 Medium + GPT-6.1 Terra High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-fable-5-2-medium-sidekick-gpt-6-1-terra-high",
+        "name": "Fusion (Claude Fable 5.2 Medium + GPT-6.1 Terra High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-fable-5-1-medium-sidekick-gpt-6-1-terra-high",
+        "name": "Fusion (Claude Fable 5.1 Medium + GPT-6.1 Terra High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-5-6-sol-high-sidekick-gpt-6-1-terra-high",
+        "name": "Fusion (GPT-5.6 Sol High Thinking + GPT-6.1 Terra High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-opus-5-high-sidekick-gpt-6-1-terra-high",
+        "name": "Fusion (Claude Opus 5 High + GPT-6.1 Terra High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-sonnet-5-5-high-sidekick-gpt-6-1-terra-high",
+        "name": "Fusion (Claude Sonnet 5.5 High + GPT-6.1 Terra High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-2-astra-high-sidekick-gpt-6-1-terra-high",
+        "name": "Fusion (GPT-6.2 Astra High Thinking + GPT-6.1 Terra High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-astra-high-sidekick-gpt-6-1-terra-high",
+        "name": "Fusion (GPT-6 Astra High Thinking + GPT-6.1 Terra High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-sol-high-sidekick-gpt-6-1-terra-high",
+        "name": "Fusion (GPT-6 Sol High Thinking + GPT-6.1 Terra High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-2-sol-high-sidekick-gpt-6-1-terra-high",
+        "name": "Fusion (GPT-6.2 Sol High Thinking + GPT-6.1 Terra High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-1-sol-high-sidekick-gpt-6-1-terra-high",
+        "name": "Fusion (GPT-6.1 Sol High Thinking + GPT-6.1 Terra High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-opus-5-5-medium-sidekick-glm-5-2",
+        "name": "Fusion (Claude Opus 5.5 Medium + GLM-5.2 High)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-fable-5-2-medium-sidekick-glm-5-2",
+        "name": "Fusion (Claude Fable 5.2 Medium + GLM-5.2 High)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-fable-5-1-medium-sidekick-glm-5-2",
+        "name": "Fusion (Claude Fable 5.1 Medium + GLM-5.2 High)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-5-6-sol-high-sidekick-glm-5-2",
+        "name": "Fusion (GPT-5.6 Sol High Thinking + GLM-5.2 High)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-opus-5-high-sidekick-glm-5-2",
+        "name": "Fusion (Claude Opus 5 High + GLM-5.2 High)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-sonnet-5-5-high-sidekick-glm-5-2",
+        "name": "Fusion (Claude Sonnet 5.5 High + GLM-5.2 High)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-2-astra-high-sidekick-glm-5-2",
+        "name": "Fusion (GPT-6.2 Astra High Thinking + GLM-5.2 High)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-astra-high-sidekick-glm-5-2",
+        "name": "Fusion (GPT-6 Astra High Thinking + GLM-5.2 High)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-sol-high-sidekick-glm-5-2",
+        "name": "Fusion (GPT-6 Sol High Thinking + GLM-5.2 High)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-2-sol-high-sidekick-glm-5-2",
+        "name": "Fusion (GPT-6.2 Sol High Thinking + GLM-5.2 High)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-1-sol-high-sidekick-glm-5-2",
+        "name": "Fusion (GPT-6.1 Sol High Thinking + GLM-5.2 High)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-opus-5-5-medium-sidekick-gpt-5-6-sol-high",
+        "name": "Fusion (Claude Opus 5.5 Medium + GPT-5.6 Sol High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-fable-5-2-medium-sidekick-gpt-5-6-sol-high",
+        "name": "Fusion (Claude Fable 5.2 Medium + GPT-5.6 Sol High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-fable-5-1-medium-sidekick-gpt-5-6-sol-high",
+        "name": "Fusion (Claude Fable 5.1 Medium + GPT-5.6 Sol High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-opus-5-high-sidekick-gpt-5-6-sol-high",
+        "name": "Fusion (Claude Opus 5 High + GPT-5.6 Sol High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-sonnet-5-5-high-sidekick-gpt-5-6-sol-high",
+        "name": "Fusion (Claude Sonnet 5.5 High + GPT-5.6 Sol High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-2-astra-high-sidekick-gpt-5-6-sol-high",
+        "name": "Fusion (GPT-6.2 Astra High Thinking + GPT-5.6 Sol High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-astra-high-sidekick-gpt-5-6-sol-high",
+        "name": "Fusion (GPT-6 Astra High Thinking + GPT-5.6 Sol High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-sol-high-sidekick-gpt-5-6-sol-high",
+        "name": "Fusion (GPT-6 Sol High Thinking + GPT-5.6 Sol High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-2-sol-high-sidekick-gpt-5-6-sol-high",
+        "name": "Fusion (GPT-6.2 Sol High Thinking + GPT-5.6 Sol High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-1-sol-high-sidekick-gpt-5-6-sol-high",
+        "name": "Fusion (GPT-6.1 Sol High Thinking + GPT-5.6 Sol High Thinking)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-opus-5-5-medium-sidekick-swe-2-high",
+        "name": "Fusion (Claude Opus 5.5 Medium + SWE-2 High)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-fable-5-2-medium-sidekick-swe-2-high",
+        "name": "Fusion (Claude Fable 5.2 Medium + SWE-2 High)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-fable-5-1-medium-sidekick-swe-2-high",
+        "name": "Fusion (Claude Fable 5.1 Medium + SWE-2 High)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-5-6-sol-high-sidekick-swe-2-high",
+        "name": "Fusion (GPT-5.6 Sol High Thinking + SWE-2 High)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-opus-5-high-sidekick-swe-2-high",
+        "name": "Fusion (Claude Opus 5 High + SWE-2 High)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-sonnet-5-5-high-sidekick-swe-2-high",
+        "name": "Fusion (Claude Sonnet 5.5 High + SWE-2 High)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-2-astra-high-sidekick-swe-2-high",
+        "name": "Fusion (GPT-6.2 Astra High Thinking + SWE-2 High)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-astra-high-sidekick-swe-2-high",
+        "name": "Fusion (GPT-6 Astra High Thinking + SWE-2 High)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-sol-high-sidekick-swe-2-high",
+        "name": "Fusion (GPT-6 Sol High Thinking + SWE-2 High)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-2-sol-high-sidekick-swe-2-high",
+        "name": "Fusion (GPT-6.2 Sol High Thinking + SWE-2 High)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-1-sol-high-sidekick-swe-2-high",
+        "name": "Fusion (GPT-6.1 Sol High Thinking + SWE-2 High)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-opus-5-5-medium-sidekick-swe-2-flash-max",
+        "name": "Fusion (Claude Opus 5.5 Medium + SWE-2 Flash Max)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-fable-5-2-medium-sidekick-swe-2-flash-max",
+        "name": "Fusion (Claude Fable 5.2 Medium + SWE-2 Flash Max)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-fable-5-1-medium-sidekick-swe-2-flash-max",
+        "name": "Fusion (Claude Fable 5.1 Medium + SWE-2 Flash Max)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-5-6-sol-high-sidekick-swe-2-flash-max",
+        "name": "Fusion (GPT-5.6 Sol High Thinking + SWE-2 Flash Max)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-opus-5-high-sidekick-swe-2-flash-max",
+        "name": "Fusion (Claude Opus 5 High + SWE-2 Flash Max)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-sonnet-5-5-high-sidekick-swe-2-flash-max",
+        "name": "Fusion (Claude Sonnet 5.5 High + SWE-2 Flash Max)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-2-astra-high-sidekick-swe-2-flash-max",
+        "name": "Fusion (GPT-6.2 Astra High Thinking + SWE-2 Flash Max)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-astra-high-sidekick-swe-2-flash-max",
+        "name": "Fusion (GPT-6 Astra High Thinking + SWE-2 Flash Max)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-sol-high-sidekick-swe-2-flash-max",
+        "name": "Fusion (GPT-6 Sol High Thinking + SWE-2 Flash Max)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-2-sol-high-sidekick-swe-2-flash-max",
+        "name": "Fusion (GPT-6.2 Sol High Thinking + SWE-2 Flash Max)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-1-sol-high-sidekick-swe-2-flash-max",
+        "name": "Fusion (GPT-6.1 Sol High Thinking + SWE-2 Flash Max)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-opus-5-5-medium-sidekick-claude-sonnet-5-5-medium",
+        "name": "Fusion (Claude Opus 5.5 Medium + Claude Sonnet 5.5 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-fable-5-2-medium-sidekick-claude-sonnet-5-5-medium",
+        "name": "Fusion (Claude Fable 5.2 Medium + Claude Sonnet 5.5 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-fable-5-1-medium-sidekick-claude-sonnet-5-5-medium",
+        "name": "Fusion (Claude Fable 5.1 Medium + Claude Sonnet 5.5 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-5-6-sol-high-sidekick-claude-sonnet-5-5-medium",
+        "name": "Fusion (GPT-5.6 Sol High Thinking + Claude Sonnet 5.5 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-opus-5-high-sidekick-claude-sonnet-5-5-medium",
+        "name": "Fusion (Claude Opus 5 High + Claude Sonnet 5.5 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-2-astra-high-sidekick-claude-sonnet-5-5-medium",
+        "name": "Fusion (GPT-6.2 Astra High Thinking + Claude Sonnet 5.5 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-astra-high-sidekick-claude-sonnet-5-5-medium",
+        "name": "Fusion (GPT-6 Astra High Thinking + Claude Sonnet 5.5 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-sol-high-sidekick-claude-sonnet-5-5-medium",
+        "name": "Fusion (GPT-6 Sol High Thinking + Claude Sonnet 5.5 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-2-sol-high-sidekick-claude-sonnet-5-5-medium",
+        "name": "Fusion (GPT-6.2 Sol High Thinking + Claude Sonnet 5.5 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-1-sol-high-sidekick-claude-sonnet-5-5-medium",
+        "name": "Fusion (GPT-6.1 Sol High Thinking + Claude Sonnet 5.5 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-opus-5-5-medium-sidekick-claude-haiku-5-5-medium",
+        "name": "Fusion (Claude Opus 5.5 Medium + Claude Haiku 5.5 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-fable-5-2-medium-sidekick-claude-haiku-5-5-medium",
+        "name": "Fusion (Claude Fable 5.2 Medium + Claude Haiku 5.5 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-fable-5-1-medium-sidekick-claude-haiku-5-5-medium",
+        "name": "Fusion (Claude Fable 5.1 Medium + Claude Haiku 5.5 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-5-6-sol-high-sidekick-claude-haiku-5-5-medium",
+        "name": "Fusion (GPT-5.6 Sol High Thinking + Claude Haiku 5.5 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-opus-5-high-sidekick-claude-haiku-5-5-medium",
+        "name": "Fusion (Claude Opus 5 High + Claude Haiku 5.5 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-claude-sonnet-5-5-high-sidekick-claude-haiku-5-5-medium",
+        "name": "Fusion (Claude Sonnet 5.5 High + Claude Haiku 5.5 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-2-astra-high-sidekick-claude-haiku-5-5-medium",
+        "name": "Fusion (GPT-6.2 Astra High Thinking + Claude Haiku 5.5 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-astra-high-sidekick-claude-haiku-5-5-medium",
+        "name": "Fusion (GPT-6 Astra High Thinking + Claude Haiku 5.5 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-sol-high-sidekick-claude-haiku-5-5-medium",
+        "name": "Fusion (GPT-6 Sol High Thinking + Claude Haiku 5.5 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-2-sol-high-sidekick-claude-haiku-5-5-medium",
+        "name": "Fusion (GPT-6.2 Sol High Thinking + Claude Haiku 5.5 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "fusion-gpt-6-1-sol-high-sidekick-claude-haiku-5-5-medium",
+        "name": "Fusion (GPT-6.1 Sol High Thinking + Claude Haiku 5.5 Medium)",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "claude-opus-4-6",
+        "name": "Claude Opus 4.6",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "claude-opus-4-6-thinking",
+        "name": "Claude Opus 4.6 Thinking",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "claude-opus-4-6-1m",
+        "name": "Claude Opus 4.6 1M",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "claude-opus-4-6-thinking-1m",
+        "name": "Claude Opus 4.6 Thinking 1M",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "gpt-5-4-none",
+        "name": "GPT-5.4",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "gpt-5-5-low",
+        "name": "GPT-5.5",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "gpt-5-4-mini-low",
+        "name": "GPT-5.4 Mini",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "claude-sonnet-4-6",
+        "name": "Claude Sonnet 4.6",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "claude-sonnet-4-6-thinking",
+        "name": "Claude Sonnet 4.6 Thinking",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "claude-sonnet-4-6-1m",
+        "name": "Claude Sonnet 4.6 1M",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "claude-sonnet-4-6-thinking-1m",
+        "name": "Claude Sonnet 4.6 Thinking 1M",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "kimi-k2-6",
+        "name": "Kimi K2.6",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "kimi-k2-7",
+        "name": "Kimi K2.7",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "nemotron-3-ultra-high",
+        "name": "Nemotron 3 Ultra",
+        "_meta": {
+         "cognition.ai/supportsImages": false
+        }
+       },
+       {
+        "value": "swe-1-6",
+        "name": "SWE-1.6",
+        "_meta": {
+         "cognition.ai/supportsImages": true
+        }
+       },
+       {
+        "value": "deepseek-v4-pro-high",
+        "name": "DeepSeek V4 Pro",
+        "_meta": {
+         "cognition.ai/supportsImages": false
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "current_mode_update",
+    "currentModeId": "accept-edits"
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "available_commands_update",
+    "availableCommands": [
+     {
+      "name": "login",
+      "description": "Authenticate with an API key",
+      "input": {
+       "hint": "[api-key]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "log-in",
+       "cognition.ai/category": "Account"
+      }
+     },
+     {
+      "name": "logout",
+      "description": "Clear authentication",
+      "_meta": {
+       "cognition.ai/icon": "log-out",
+       "cognition.ai/category": "Account"
+      }
+     },
+     {
+      "name": "status",
+      "description": "Check authentication status",
+      "_meta": {
+       "cognition.ai/icon": "user-check",
+       "cognition.ai/category": "Account"
+      }
+     },
+     {
+      "name": "billing",
+      "description": "Choose whether a provider plan (e.g. ChatGPT) pays for its models",
+      "input": {
+       "hint": "[on|off]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "credit-card",
+       "cognition.ai/category": "Account"
+      }
+     },
+     {
+      "name": "workspace",
+      "description": "List workspace directories",
+      "_meta": {
+       "cognition.ai/icon": "folder-open",
+       "cognition.ai/category": "System"
+      }
+     },
+     {
+      "name": "ask",
+      "description": "Switch to Ask mode (read-only)",
+      "input": {
+       "hint": "[question]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "message-circle",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "plan",
+      "description": "Switch to Plan mode, or plan with a prompt",
+      "input": {
+       "hint": "[prompt]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "file-text",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "code",
+      "description": "Switch to Code mode, or run a prompt in it",
+      "input": {
+       "hint": "[prompt]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "code",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "smart",
+      "description": "Switch to Smart mode, or run a prompt under it",
+      "input": {
+       "hint": "[prompt]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "sparkles",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "bypass",
+      "description": "Switch to Bypass Permissions mode, or run a prompt under it",
+      "input": {
+       "hint": "[prompt]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "shield-off",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "compact",
+      "description": "Force conversation compaction",
+      "_meta": {
+       "cognition.ai/icon": "archive",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "context",
+      "description": "Show context window usage",
+      "_meta": {
+       "cognition.ai/icon": "pie-chart",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "fast",
+      "description": "Switch to the fastest model available to you, or run a prompt with it",
+      "input": {
+       "hint": "[prompt]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "goal",
+      "description": "Set a goal the agent keeps working on until it is done",
+      "input": {
+       "hint": "[<objective>|resume|clear]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "target",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "recap",
+      "description": "Recap the session so far with a short summary",
+      "_meta": {
+       "cognition.ai/icon": "history",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "session-stats",
+      "description": "Show session statistics",
+      "_meta": {
+       "cognition.ai/icon": "bar-chart-2",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "rename",
+      "description": "Rename this session",
+      "input": {
+       "hint": "[new title]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "pencil",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "share",
+      "description": "Share this conversation with your team on Devin",
+      "_meta": {
+       "cognition.ai/icon": "share-2",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "handoff",
+      "description": "Hand this session off to a cloud Devin session",
+      "input": {
+       "hint": "[task]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "cloud-upload",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "mcp",
+      "description": "List configured MCP servers and their status",
+      "_meta": {
+       "cognition.ai/icon": "plug",
+       "cognition.ai/category": "System"
+      }
+     },
+     {
+      "name": "bug",
+      "description": "Report a bug to the Devin CLI developers",
+      "input": {
+       "hint": "<description>"
+      },
+      "_meta": {
+       "cognition.ai/icon": "bug",
+       "cognition.ai/category": "System"
+      }
+     },
+     {
+      "name": "help",
+      "description": "Show available commands",
+      "_meta": {
+       "cognition.ai/icon": "help-circle",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "browser-harness",
+      "description": "Control a real browser via CDP: clicking, typing, navigation, logged-in sessions, JS-rendered or bot-protected pages. Not for plain HTTP fetches of public content - use curl for those.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "session-memo",
+      "description": "Persist session state as a file instead of relying on auto-compaction. MUST be used at the end of any working session with real progress, proactively when the context fills past ~80%, and at session start whenever the user resumes prior work (\"weiter\", \"fortsetzen\", \"continue\", \"resume\"). Writes decisions, learnings and open points to a memo file so a fresh session resumes without questions.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "zweitmeinung",
+      "description": "Independent critic pass over a non-trivial artifact before it is delivered, committed, merged or published — wiki pages, code diffs, plans, analyses. MUST be used when the user asks for a review/Zweitmeinung/Kritik, and should be proposed by the agent before shipping non-trivial output. Skip for trivial tasks.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "declarative-repo-setup",
+      "description": "Generate and verify a working environment.yaml (Devin snapshot-setup blueprint) for a repo",
+      "input": {
+       "hint": "<owner/repo>"
+      },
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "upload-secrets",
+      "description": "Securely upload local secrets (dotenv files, env vars, API keys) to the Devin Cloud secrets manager — values never enter the conversation",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:access-protected-vercel-deployment",
+      "description": "Access and test Vercel deployments protected by Vercel Authentication, SSO, or Deployment Protection. Use when curl, agent-browser, Playwright, or another automated request reaches a Vercel login or protection page; when a protected preview or production URL returns 401 or 403; when TRUSTED_SOURCES_ENVIRONMENT_MISMATCH appears; or when choosing between `vercel curl` and the `x-vercel-trusted-oidc-idp-token` header.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:ai-gateway",
+      "description": "Vercel AI Gateway guidance for setup, model discovery, authentication, routing, fallbacks, BYOK, budgets, spend reporting, observability, compatible APIs, and coding-agent configuration. Use when adding AI Gateway to an app, migrating provider calls, choosing models or providers, debugging gateway requests, or running `vercel ai-gateway` commands.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:ai-sdk",
+      "description": "Vercel AI SDK expert guidance. Use when building AI-powered features — chat interfaces, text generation, structured output, tool calling, agents, MCP integration, streaming, embeddings, reranking, image generation, or working with any LLM provider.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:auth",
+      "description": "Authentication integration guidance — Clerk (native Vercel Marketplace), Descope, and Auth0 setup for Next.js applications. Covers middleware auth patterns, sign-in/sign-up flows, and Marketplace provisioning. Use when implementing user authentication.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:bootstrap",
+      "description": "Project bootstrapping orchestrator for repos that depend on Vercel-linked resources (databases, auth, and managed integrations). Use when setting up or repairing a repository so linking, environment provisioning, env pulls, and first-run db/dev commands happen in the correct safe order.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:build-agents",
+      "description": "Default guidance for building AI agents. Use for generic requests to build, create, scaffold, design, architect, or implement an AI agent, agent app, tool-calling agent, durable agent, multi-agent system, or scheduled agent.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:cdn-caching",
+      "description": "Debug Vercel CDN caching — cache hit rate, stale content, revalidation behavior, ISR + PPR, per-request cache reasons (cacheReason) and PPR state (ppr_state), and costs.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:chat-sdk",
+      "description": "Vercel Chat SDK expert guidance. Use when building multi-platform chat bots — Slack, Telegram, Microsoft Teams, Discord, Google Chat, GitHub, Linear — with a single codebase. Covers the Chat class, adapters, threads, messages, cards, modals, streaming, state management, and webhook setup.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:create-a-backend",
+      "description": "Backend architecture guidance. Use when planning, building, or migrating an API or backend; choosing between Functions, Services, containers, Workflow, Queues, and Marketplace databases; or selecting a supported backend framework or runtime.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:deployments-cicd",
+      "description": "Vercel deployment and CI/CD expert guidance. Use when deploying, promoting, rolling back, inspecting deployments, building with --prebuilt, or configuring CI workflow files for Vercel.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:env-vars",
+      "description": "Vercel environment variable expert guidance. Use when working with .env files, vercel env commands, OIDC tokens, or managing environment-specific configuration.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:eve",
+      "description": "eve framework guidance for durable AI agents and agent-powered applications. Use when creating, editing, or debugging an eve project, when the user explicitly asks for eve, or when the build-agents skill has selected eve as the default framework. Covers eve's filesystem-first runtime, durable sessions, tools, skills, connections, channels, sandboxes, subagents, schedules, evals, frontend clients, and Agent Runs observability. Do not use for incidental agent mentions, generic agent-building prompts, or established non-eve stacks unless the user asks for comparison or migration.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:flags-sdk",
+      "description": "Flags SDK and Vercel Flags expert guidance. Use when declaring feature flags with flag(), wiring provider adapters (Vercel, Statsig, LaunchDarkly, PostHog, and others), managing flags with the vercel flags CLI, implementing the precompute pattern for static A/B tests, or integrating the Flags Explorer.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:knowledge-update",
+      "description": "Corrects outdated LLM knowledge about the Vercel platform and introduces new products. Injected at session start.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:marketplace",
+      "description": "Vercel Marketplace expert guidance — discovering, installing, and managing third-party integrations via the `vercel integration` CLI. Use when building any app that needs an external capability without a dedicated skill — commerce (stores, storefronts, selling products), payments (checkout, subscriptions, billing), observability/monitoring, messaging/email, search, or CMS — or when discovering, installing, or managing integrations.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:microfrontends",
+      "description": "Guide for building, configuring, and deploying microfrontends on Vercel. Use this skill when the user mentions microfrontends, multi-zones, splitting an app across teams, independent deployments, cross-app routing, incremental migration, composing multiple frontends under one domain, microfrontends.json, @vercel/microfrontends, the microfrontends local proxy, or path-based routing between Vercel projects. Also use when the user asks about shared layouts across projects, navigation between microfrontends, fallback environments, asset prefixes, or feature flag controlled routing.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:next-cache-components",
+      "description": "Next.js 16 Cache Components guidance — PPR, use cache directive, cacheLife, cacheTag, updateTag, and migration from unstable_cache. Use when implementing partial prerendering, caching strategies, or migrating from older Next.js cache patterns.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:next-forge",
+      "description": "next-forge expert guidance — production-grade Turborepo monorepo SaaS starter by Vercel. Use when working in a next-forge project, scaffolding with `npx next-forge init`, or editing @repo/* workspace packages.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:next-upgrade",
+      "description": "Upgrade Next.js to the latest version following official migration guides and codemods. Use when upgrading Next.js versions, running codemods, or migrating between major releases.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:nextjs",
+      "description": "Next.js App Router expert guidance. Use when building, debugging, or architecting Next.js applications — routing, Server Components, Server Actions, Cache Components, layouts, middleware/proxy, data fetching, rendering strategies, and deployment on Vercel.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:react-best-practices",
+      "description": "React best-practices reviewer for TSX files. Triggers after editing multiple TSX components to run a condensed quality checklist covering component structure, hooks usage, accessibility, performance, and TypeScript patterns.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:routing-middleware",
+      "description": "Vercel Routing Middleware guidance — request interception before cache, rewrites, redirects, personalization. Works with any framework. Supports Edge, Node.js, and Bun runtimes. Use when intercepting requests at the platform level.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:runtime-cache",
+      "description": "Vercel Runtime Cache API guidance — ephemeral per-region key-value cache with tag-based invalidation. Shared across Functions, Routing Middleware, and Builds. Use when implementing caching strategies beyond framework-level caching.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:shadcn",
+      "description": "shadcn/ui expert guidance — CLI, component installation, composition patterns, custom registries, theming, Tailwind CSS integration, and high-quality interface design. Use when initializing shadcn, adding components, composing product UI, building custom registries, configuring themes, or troubleshooting component issues.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:turbopack",
+      "description": "Turbopack expert guidance. Use when configuring the Next.js bundler, optimizing HMR, debugging build issues, or understanding the Turbopack vs Webpack differences.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:vercel-agent",
+      "description": "Vercel Agent guidance — AI-powered code review, incident investigation, and SDK installation. Automates PR analysis and anomaly debugging. Use when configuring or understanding Vercel's AI development tools.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:vercel-cli",
+      "description": "Vercel CLI expert guidance. Use when deploying, managing environment variables, linking projects, viewing logs, querying metrics, managing domains, or interacting with the Vercel platform from the command line.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:vercel-connect",
+      "description": "Vercel Connect expert guidance — securely obtain scoped OAuth tokens for third-party services (Slack, GitHub, MCP servers, OAuth, Snowflake) on behalf of apps or users via Vercel OIDC. Use when wiring up third-party API access, connecting to MCP servers, sending Slack messages, accessing GitHub APIs, receiving webhook events from Slack/Linear/GitHub and forwarding them to your agents and apps, or building eve agent connections.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:vercel-firewall",
+      "description": "Vercel Firewall expert guidance — automatic DDoS mitigation, the Vercel WAF (custom rules, IP blocking, managed rulesets, rate limiting), Attack Mode, system bypass, bot management, and the `vercel firewall` CLI. Use when configuring platform-level security, responding to attacks, or staging firewall rules.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:vercel-functions",
+      "description": "Vercel Functions expert guidance — Serverless Functions, Edge Functions, Fluid Compute, streaming, Cron Jobs, and runtime configuration. Use when configuring, debugging, or optimizing server-side code running on Vercel.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:vercel-sandbox",
+      "description": "Vercel Sandbox guidance — ephemeral Firecracker microVMs for running untrusted code safely. Supports AI agents, code generation, and experimentation. Use when executing user-generated or AI-generated code in isolation.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:vercel-services",
+      "description": "Configure and troubleshoot Vercel Services for multiple frontends and backends in one project. Use when composing a polyglot or multi-service application on one Vercel deployment; defining the `services` key, service-targeted rewrites, or service bindings in `vercel.json`; or running all services with `vercel dev`.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:vercel-storage",
+      "description": "Vercel storage expert guidance — Blob, Global Config (formerly Edge Config), and Marketplace storage (Neon Postgres, Upstash Redis). Use when choosing, configuring, or using data storage with Vercel applications.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:verification",
+      "description": "Full-story verification — infers what the user is building, then verifies the complete flow end-to-end: browser → API → data → response. Triggers on dev server start and 'why isn't this working' signals.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:workflow",
+      "description": "Vercel Workflow SDK expert guidance. Use when building durable workflows, long-running tasks, API routes or agents that need pause/resume, retries, step-based execution, or crash-safe orchestration with Vercel Workflow.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "session_info_update",
+    "title": "Lies die Datei p1.mjs in diesem Ordner und sag mir in einem Satz, was sie tut."
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "available_commands_update",
+    "availableCommands": [
+     {
+      "name": "login",
+      "description": "Authenticate with an API key",
+      "input": {
+       "hint": "[api-key]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "log-in",
+       "cognition.ai/category": "Account"
+      }
+     },
+     {
+      "name": "logout",
+      "description": "Clear authentication",
+      "_meta": {
+       "cognition.ai/icon": "log-out",
+       "cognition.ai/category": "Account"
+      }
+     },
+     {
+      "name": "status",
+      "description": "Check authentication status",
+      "_meta": {
+       "cognition.ai/icon": "user-check",
+       "cognition.ai/category": "Account"
+      }
+     },
+     {
+      "name": "billing",
+      "description": "Choose whether a provider plan (e.g. ChatGPT) pays for its models",
+      "input": {
+       "hint": "[on|off]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "credit-card",
+       "cognition.ai/category": "Account"
+      }
+     },
+     {
+      "name": "workspace",
+      "description": "List workspace directories",
+      "_meta": {
+       "cognition.ai/icon": "folder-open",
+       "cognition.ai/category": "System"
+      }
+     },
+     {
+      "name": "ask",
+      "description": "Switch to Ask mode (read-only)",
+      "input": {
+       "hint": "[question]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "message-circle",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "plan",
+      "description": "Switch to Plan mode, or plan with a prompt",
+      "input": {
+       "hint": "[prompt]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "file-text",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "code",
+      "description": "Switch to Code mode, or run a prompt in it",
+      "input": {
+       "hint": "[prompt]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "code",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "smart",
+      "description": "Switch to Smart mode, or run a prompt under it",
+      "input": {
+       "hint": "[prompt]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "sparkles",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "bypass",
+      "description": "Switch to Bypass Permissions mode, or run a prompt under it",
+      "input": {
+       "hint": "[prompt]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "shield-off",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "compact",
+      "description": "Force conversation compaction",
+      "_meta": {
+       "cognition.ai/icon": "archive",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "context",
+      "description": "Show context window usage",
+      "_meta": {
+       "cognition.ai/icon": "pie-chart",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "fast",
+      "description": "Switch to the fastest model available to you, or run a prompt with it",
+      "input": {
+       "hint": "[prompt]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "goal",
+      "description": "Set a goal the agent keeps working on until it is done",
+      "input": {
+       "hint": "[<objective>|resume|clear]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "target",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "recap",
+      "description": "Recap the session so far with a short summary",
+      "_meta": {
+       "cognition.ai/icon": "history",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "session-stats",
+      "description": "Show session statistics",
+      "_meta": {
+       "cognition.ai/icon": "bar-chart-2",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "rename",
+      "description": "Rename this session",
+      "input": {
+       "hint": "[new title]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "pencil",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "share",
+      "description": "Share this conversation with your team on Devin",
+      "_meta": {
+       "cognition.ai/icon": "share-2",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "handoff",
+      "description": "Hand this session off to a cloud Devin session",
+      "input": {
+       "hint": "[task]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "cloud-upload",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "mcp",
+      "description": "List configured MCP servers and their status",
+      "_meta": {
+       "cognition.ai/icon": "plug",
+       "cognition.ai/category": "System"
+      }
+     },
+     {
+      "name": "bug",
+      "description": "Report a bug to the Devin CLI developers",
+      "input": {
+       "hint": "<description>"
+      },
+      "_meta": {
+       "cognition.ai/icon": "bug",
+       "cognition.ai/category": "System"
+      }
+     },
+     {
+      "name": "help",
+      "description": "Show available commands",
+      "_meta": {
+       "cognition.ai/icon": "help-circle",
+       "cognition.ai/category": "Session"
+      }
+     },
+     {
+      "name": "browser-harness",
+      "description": "Control a real browser via CDP: clicking, typing, navigation, logged-in sessions, JS-rendered or bot-protected pages. Not for plain HTTP fetches of public content - use curl for those.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "session-memo",
+      "description": "Persist session state as a file instead of relying on auto-compaction. MUST be used at the end of any working session with real progress, proactively when the context fills past ~80%, and at session start whenever the user resumes prior work (\"weiter\", \"fortsetzen\", \"continue\", \"resume\"). Writes decisions, learnings and open points to a memo file so a fresh session resumes without questions.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "zweitmeinung",
+      "description": "Independent critic pass over a non-trivial artifact before it is delivered, committed, merged or published — wiki pages, code diffs, plans, analyses. MUST be used when the user asks for a review/Zweitmeinung/Kritik, and should be proposed by the agent before shipping non-trivial output. Skip for trivial tasks.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "declarative-repo-setup",
+      "description": "Generate and verify a working environment.yaml (Devin snapshot-setup blueprint) for a repo",
+      "input": {
+       "hint": "<owner/repo>"
+      },
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "upload-secrets",
+      "description": "Securely upload local secrets (dotenv files, env vars, API keys) to the Devin Cloud secrets manager — values never enter the conversation",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:access-protected-vercel-deployment",
+      "description": "Access and test Vercel deployments protected by Vercel Authentication, SSO, or Deployment Protection. Use when curl, agent-browser, Playwright, or another automated request reaches a Vercel login or protection page; when a protected preview or production URL returns 401 or 403; when TRUSTED_SOURCES_ENVIRONMENT_MISMATCH appears; or when choosing between `vercel curl` and the `x-vercel-trusted-oidc-idp-token` header.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:ai-gateway",
+      "description": "Vercel AI Gateway guidance for setup, model discovery, authentication, routing, fallbacks, BYOK, budgets, spend reporting, observability, compatible APIs, and coding-agent configuration. Use when adding AI Gateway to an app, migrating provider calls, choosing models or providers, debugging gateway requests, or running `vercel ai-gateway` commands.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:ai-sdk",
+      "description": "Vercel AI SDK expert guidance. Use when building AI-powered features — chat interfaces, text generation, structured output, tool calling, agents, MCP integration, streaming, embeddings, reranking, image generation, or working with any LLM provider.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:auth",
+      "description": "Authentication integration guidance — Clerk (native Vercel Marketplace), Descope, and Auth0 setup for Next.js applications. Covers middleware auth patterns, sign-in/sign-up flows, and Marketplace provisioning. Use when implementing user authentication.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:bootstrap",
+      "description": "Project bootstrapping orchestrator for repos that depend on Vercel-linked resources (databases, auth, and managed integrations). Use when setting up or repairing a repository so linking, environment provisioning, env pulls, and first-run db/dev commands happen in the correct safe order.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:build-agents",
+      "description": "Default guidance for building AI agents. Use for generic requests to build, create, scaffold, design, architect, or implement an AI agent, agent app, tool-calling agent, durable agent, multi-agent system, or scheduled agent.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:cdn-caching",
+      "description": "Debug Vercel CDN caching — cache hit rate, stale content, revalidation behavior, ISR + PPR, per-request cache reasons (cacheReason) and PPR state (ppr_state), and costs.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:chat-sdk",
+      "description": "Vercel Chat SDK expert guidance. Use when building multi-platform chat bots — Slack, Telegram, Microsoft Teams, Discord, Google Chat, GitHub, Linear — with a single codebase. Covers the Chat class, adapters, threads, messages, cards, modals, streaming, state management, and webhook setup.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:create-a-backend",
+      "description": "Backend architecture guidance. Use when planning, building, or migrating an API or backend; choosing between Functions, Services, containers, Workflow, Queues, and Marketplace databases; or selecting a supported backend framework or runtime.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:deployments-cicd",
+      "description": "Vercel deployment and CI/CD expert guidance. Use when deploying, promoting, rolling back, inspecting deployments, building with --prebuilt, or configuring CI workflow files for Vercel.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:env-vars",
+      "description": "Vercel environment variable expert guidance. Use when working with .env files, vercel env commands, OIDC tokens, or managing environment-specific configuration.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:eve",
+      "description": "eve framework guidance for durable AI agents and agent-powered applications. Use when creating, editing, or debugging an eve project, when the user explicitly asks for eve, or when the build-agents skill has selected eve as the default framework. Covers eve's filesystem-first runtime, durable sessions, tools, skills, connections, channels, sandboxes, subagents, schedules, evals, frontend clients, and Agent Runs observability. Do not use for incidental agent mentions, generic agent-building prompts, or established non-eve stacks unless the user asks for comparison or migration.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:flags-sdk",
+      "description": "Flags SDK and Vercel Flags expert guidance. Use when declaring feature flags with flag(), wiring provider adapters (Vercel, Statsig, LaunchDarkly, PostHog, and others), managing flags with the vercel flags CLI, implementing the precompute pattern for static A/B tests, or integrating the Flags Explorer.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:knowledge-update",
+      "description": "Corrects outdated LLM knowledge about the Vercel platform and introduces new products. Injected at session start.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:marketplace",
+      "description": "Vercel Marketplace expert guidance — discovering, installing, and managing third-party integrations via the `vercel integration` CLI. Use when building any app that needs an external capability without a dedicated skill — commerce (stores, storefronts, selling products), payments (checkout, subscriptions, billing), observability/monitoring, messaging/email, search, or CMS — or when discovering, installing, or managing integrations.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:microfrontends",
+      "description": "Guide for building, configuring, and deploying microfrontends on Vercel. Use this skill when the user mentions microfrontends, multi-zones, splitting an app across teams, independent deployments, cross-app routing, incremental migration, composing multiple frontends under one domain, microfrontends.json, @vercel/microfrontends, the microfrontends local proxy, or path-based routing between Vercel projects. Also use when the user asks about shared layouts across projects, navigation between microfrontends, fallback environments, asset prefixes, or feature flag controlled routing.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:next-cache-components",
+      "description": "Next.js 16 Cache Components guidance — PPR, use cache directive, cacheLife, cacheTag, updateTag, and migration from unstable_cache. Use when implementing partial prerendering, caching strategies, or migrating from older Next.js cache patterns.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:next-forge",
+      "description": "next-forge expert guidance — production-grade Turborepo monorepo SaaS starter by Vercel. Use when working in a next-forge project, scaffolding with `npx next-forge init`, or editing @repo/* workspace packages.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:next-upgrade",
+      "description": "Upgrade Next.js to the latest version following official migration guides and codemods. Use when upgrading Next.js versions, running codemods, or migrating between major releases.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:nextjs",
+      "description": "Next.js App Router expert guidance. Use when building, debugging, or architecting Next.js applications — routing, Server Components, Server Actions, Cache Components, layouts, middleware/proxy, data fetching, rendering strategies, and deployment on Vercel.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:react-best-practices",
+      "description": "React best-practices reviewer for TSX files. Triggers after editing multiple TSX components to run a condensed quality checklist covering component structure, hooks usage, accessibility, performance, and TypeScript patterns.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:routing-middleware",
+      "description": "Vercel Routing Middleware guidance — request interception before cache, rewrites, redirects, personalization. Works with any framework. Supports Edge, Node.js, and Bun runtimes. Use when intercepting requests at the platform level.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:runtime-cache",
+      "description": "Vercel Runtime Cache API guidance — ephemeral per-region key-value cache with tag-based invalidation. Shared across Functions, Routing Middleware, and Builds. Use when implementing caching strategies beyond framework-level caching.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:shadcn",
+      "description": "shadcn/ui expert guidance — CLI, component installation, composition patterns, custom registries, theming, Tailwind CSS integration, and high-quality interface design. Use when initializing shadcn, adding components, composing product UI, building custom registries, configuring themes, or troubleshooting component issues.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:turbopack",
+      "description": "Turbopack expert guidance. Use when configuring the Next.js bundler, optimizing HMR, debugging build issues, or understanding the Turbopack vs Webpack differences.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:vercel-agent",
+      "description": "Vercel Agent guidance — AI-powered code review, incident investigation, and SDK installation. Automates PR analysis and anomaly debugging. Use when configuring or understanding Vercel's AI development tools.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:vercel-cli",
+      "description": "Vercel CLI expert guidance. Use when deploying, managing environment variables, linking projects, viewing logs, querying metrics, managing domains, or interacting with the Vercel platform from the command line.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:vercel-connect",
+      "description": "Vercel Connect expert guidance — securely obtain scoped OAuth tokens for third-party services (Slack, GitHub, MCP servers, OAuth, Snowflake) on behalf of apps or users via Vercel OIDC. Use when wiring up third-party API access, connecting to MCP servers, sending Slack messages, accessing GitHub APIs, receiving webhook events from Slack/Linear/GitHub and forwarding them to your agents and apps, or building eve agent connections.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:vercel-firewall",
+      "description": "Vercel Firewall expert guidance — automatic DDoS mitigation, the Vercel WAF (custom rules, IP blocking, managed rulesets, rate limiting), Attack Mode, system bypass, bot management, and the `vercel firewall` CLI. Use when configuring platform-level security, responding to attacks, or staging firewall rules.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:vercel-functions",
+      "description": "Vercel Functions expert guidance — Serverless Functions, Edge Functions, Fluid Compute, streaming, Cron Jobs, and runtime configuration. Use when configuring, debugging, or optimizing server-side code running on Vercel.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:vercel-sandbox",
+      "description": "Vercel Sandbox guidance — ephemeral Firecracker microVMs for running untrusted code safely. Supports AI agents, code generation, and experimentation. Use when executing user-generated or AI-generated code in isolation.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:vercel-services",
+      "description": "Configure and troubleshoot Vercel Services for multiple frontends and backends in one project. Use when composing a polyglot or multi-service application on one Vercel deployment; defining the `services` key, service-targeted rewrites, or service bindings in `vercel.json`; or running all services with `vercel dev`.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:vercel-storage",
+      "description": "Vercel storage expert guidance — Blob, Global Config (formerly Edge Config), and Marketplace storage (Neon Postgres, Upstash Redis). Use when choosing, configuring, or using data storage with Vercel applications.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:verification",
+      "description": "Full-story verification — infers what the user is building, then verifies the complete flow end-to-end: browser → API → data → response. Triggers on dev server start and 'why isn't this working' signals.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "vercel:workflow",
+      "description": "Vercel Workflow SDK expert guidance. Use when building durable workflows, long-running tasks, API routes or agents that need pause/resume, retries, step-based execution, or crash-safe orchestration with Vercel Workflow.",
+      "_meta": {
+       "cognition.ai/icon": "zap",
+       "cognition.ai/category": "Skills"
+      }
+     },
+     {
+      "name": "mcp__github-mcp-server__AssignCodingAgent",
+      "description": "Assign GitHub Coding Agent to multiple tasks in a GitHub repository.",
+      "input": {
+       "hint": "<repo>"
+      },
+      "_meta": {
+       "cognition.ai/icon": "plug",
+       "cognition.ai/category": "MCP"
+      }
+     },
+     {
+      "name": "mcp__github-mcp-server__issue_to_fix_workflow",
+      "description": "Create an issue for a problem and then generate a pull request to fix it",
+      "input": {
+       "hint": "<owner> <repo> <title> <description> [labels] [assignees]"
+      },
+      "_meta": {
+       "cognition.ai/icon": "plug",
+       "cognition.ai/category": "MCP"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "usage_update",
+    "used": 16977,
+    "size": 200000,
+    "_meta": {
+     "cognition.ai/inputTokens": 16940,
+     "cognition.ai/outputTokens": 37,
+     "cognition.ai/cachedWriteTokens": 16937
+    }
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "usage_update",
+    "used": 16977,
+    "size": 200000,
+    "_meta": {
+     "cognition.ai/inputTokens": 16940,
+     "cognition.ai/outputTokens": 37,
+     "cognition.ai/cachedWriteTokens": 16937,
+     "cognition.ai/subagent_context": {
+      "parentAgentId": "root"
+     }
+    }
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "tool_call",
+    "toolCallId": "call_dab4d1df95d4472e97afb4b42c36943b",
+    "title": "Read file",
+    "kind": "read",
+    "locations": [
+     {
+      "path": "C:\\Users\\HenriB\\Projects\\devin-chat\\probe\\p1.mjs"
+     }
+    ],
+    "rawInput": {
+     "file_path": "C:\\Users\\HenriB\\Projects\\devin-chat\\probe\\p1.mjs"
+    },
+    "_meta": {
+     "cognition.ai/inferenceToolName": "read",
+     "cognition.ai/timestamp": "2026-11-20T20:29:51.193820+00:00"
+    }
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "tool_call_update",
+    "toolCallId": "call_dab4d1df95d4472e97afb4b42c36943b",
+    "status": "in_progress",
+    "_meta": {
+     "cognition.ai/inferenceToolName": "read"
+    }
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "tool_call_update",
+    "toolCallId": "call_dab4d1df95d4472e97afb4b42c36943b",
+    "status": "in_progress",
+    "_meta": {
+     "cognition.ai/inferenceToolName": "read"
+    }
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "tool_call_update",
+    "toolCallId": "call_dab4d1df95d4472e97afb4b42c36943b",
+    "status": "completed",
+    "content": [
+     {
+      "type": "content",
+      "content": {
+       "type": "text",
+       "text": "5 lines"
+      }
+     }
+    ],
+    "_meta": {
+     "cognition.ai/inferenceToolName": "read"
+    }
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "session_info_update",
+    "title": "p1.mjs analysieren und ihre Funktion in einem Satz beschreiben"
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "agent_message_chunk",
+    "content": {
+     "type": "text",
+     "text": "Die"
+    },
+    "_meta": {
+     "cognition.ai/timestamp": "2026-11-20T20:29:53.476476700+00:00"
+    }
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "agent_message_chunk",
+    "content": {
+     "type": "text",
+     "text": " Datei"
+    },
+    "_meta": {
+     "cognition.ai/timestamp": "2026-11-20T20:29:53.478692+00:00"
+    }
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "agent_message_chunk",
+    "content": {
+     "type": "text",
+     "text": " initial"
+    },
+    "_meta": {
+     "cognition.ai/timestamp": "2026-11-20T20:29:53.479938200+00:00"
+    }
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "agent_message_chunk",
+    "content": {
+     "type": "text",
+     "text": "isiert"
+    },
+    "_meta": {
+     "cognition.ai/timestamp": "2026-11-20T20:29:53.549384900+00:00"
+    }
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "agent_message_chunk",
+    "content": {
+     "type": "text",
+     "text": " über"
+    },
+    "_meta": {
+     "cognition.ai/timestamp": "2026-11-20T20:29:53.549462100+00:00"
+    }
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "agent_message_chunk",
+    "content": {
+     "type": "text",
+     "text": " `"
+    },
+    "_meta": {
+     "cognition.ai/timestamp": "2026-11-20T20:29:53.644962300+00:00"
+    }
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "agent_message_chunk",
+    "content": {
+     "type": "text",
+     "text": "ac"
+    },
+    "_meta": {
+     "cognition.ai/timestamp": "2026-11-20T20:29:53.649122100+00:00"
+    }
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "agent_message_chunk",
+    "content": {
+     "type": "text",
+     "text": "p"
+    },
+    "_meta": {
+     "cognition.ai/timestamp": "2026-11-20T20:29:53.663247+00:00"
+    }
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "agent_message_chunk",
+    "content": {
+     "type": "text",
+     "text": ".m"
+    },
+    "_meta": {
+     "cognition.ai/timestamp": "2026-11-20T20:29:53.667015400+00:00"
+    }
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "agent_message_chunk",
+    "content": {
+     "type": "text",
+     "text": "js"
+    },
+    "_meta": {
+     "cognition.ai/timestamp": "2026-11-20T20:29:53.673858900+00:00"
+    }
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "agent_message_chunk",
+    "content": {
+     "type": "text",
+     "text": "`"
+    },
+    "_meta": {
+     "cognition.ai/timestamp": "2026-11-20T20:29:53.677115800+00:00"
+    }
+   }
+  },
+  {
+   "sessionId": "diamond-tarsier",
+   "update": {
+    "sessionUpdate": "agent_message_chunk",
+    "content": {
+     "type": "text",
+     "text": " eine"
+    },
+    "_meta": {
+     "cognition.ai/timestamp": "2026-11-20T20:29:53.677376900+00:00"
+    }
+   }
+  }
+ ],
+ "defaultConfigOptions": {
+  "configOptions": [
+   {
+    "id": "mode",
+    "name": "Session Mode",
+    "category": "mode",
+    "type": "select",
+    "currentValue": "accept-edits",
+    "options": [
+     {
+      "value": "accept-edits",
+      "name": "Code",
+      "description": "Write and edit code",
+      "_meta": {
+       "cognition.ai/icon": "code"
+      }
+     },
+     {
+      "value": "smart",
+      "name": "Smart",
+      "description": "Auto-approve actions the model judges safe",
+      "_meta": {
+       "cognition.ai/icon": "sparkles"
+      }
+     },
+     {
+      "value": "ask",
+      "name": "Ask",
+      "description": "Answer questions without code changes",
+      "_meta": {
+       "cognition.ai/icon": "message-circle"
+      }
+     },
+     {
+      "value": "plan",
+      "name": "Plan",
+      "description": "Plan changes before implementing",
+      "_meta": {
+       "cognition.ai/icon": "file-text"
+      }
+     },
+     {
+      "value": "bypass",
+      "name": "Bypass Permissions",
+      "description": "Auto-approve all tool calls unless your organization's policy requires approval",
+      "_meta": {
+       "cognition.ai/icon": "shield-off"
+      }
+     }
+    ]
+   },
+   {
+    "id": "model",
+    "name": "Model",
+    "description": "AI model to use",
+    "category": "model",
+    "type": "select",
+    "currentValue": "adaptive",
+    "options": [
+     {
+      "value": "adaptive",
+      "name": "Adaptive",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "swe-2-high",
+      "name": "SWE-2",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "swe-2-flash-medium",
+      "name": "SWE-2 Flash",
+      "_meta": {
+       "cognition.ai/supportsImages": false
+      }
+     },
+     {
+      "value": "claude-fable-5-2-medium",
+      "name": "Claude Fable 5.2",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-opus-5-5-medium",
+      "name": "Claude Opus 5.5",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-6-2-astra-medium",
+      "name": "GPT-6.2 Astra",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-6-astra-medium",
+      "name": "GPT-6 Astra",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-6-sol-medium",
+      "name": "GPT-6 Sol",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-6-luna-medium",
+      "name": "GPT-6 Luna",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gemini-4-carbon-medium",
+      "name": "Gemini 4 Carbon",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "kimi-k3-1-pro-max",
+      "name": "Kimi K3.1 Pro",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "glm-5-3-max",
+      "name": "GLM-5.3",
+      "_meta": {
+       "cognition.ai/supportsImages": false
+      }
+     },
+     {
+      "value": "claude-sonnet-5-5-medium",
+      "name": "Claude Sonnet 5.5",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gemini-3-8-flash-medium",
+      "name": "Gemini 3.8 Flash",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-opus-4-7-medium",
+      "name": "Claude Opus 4.7",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-opus-4-8-medium",
+      "name": "Claude Opus 4.8",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-opus-5-medium",
+      "name": "Claude Opus 5",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-5-fable-medium",
+      "name": "Claude Fable 5",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-fable-5-1-medium",
+      "name": "Claude Fable 5.1",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-sonnet-5-medium",
+      "name": "Claude Sonnet 5",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-haiku-5-5-medium",
+      "name": "Claude Haiku 5.5",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gemini-3-5-flash-medium",
+      "name": "Gemini 3.5 Flash",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gemini-3-6-flash-medium",
+      "name": "Gemini 3.6 Flash",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gemini-3-7-flash-medium",
+      "name": "Gemini 3.7 Flash",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gemini-4-argon-medium",
+      "name": "Gemini 4 Argon",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gemini-4-hydrogen-medium",
+      "name": "Gemini 4 Hydrogen",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gemini-4-neon-high",
+      "name": "Gemini 4 Neon",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-5-6-sol-medium",
+      "name": "GPT-5.6 Sol",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-5-6-terra-medium",
+      "name": "GPT-5.6 Terra",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-5-6-luna-medium",
+      "name": "GPT-5.6 Luna",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-6-2-sol-medium",
+      "name": "GPT-6.2 Sol",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-6-1-sol-medium",
+      "name": "GPT-6.1 Sol",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-6-1-terra-medium",
+      "name": "GPT-6.1 Terra",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "glm-5-2",
+      "name": "GLM-5.2 High",
+      "_meta": {
+       "cognition.ai/supportsImages": false
+      }
+     },
+     {
+      "value": "glm-5-2-1m",
+      "name": "GLM-5.2 High 1M",
+      "_meta": {
+       "cognition.ai/supportsImages": false
+      }
+     },
+     {
+      "value": "grok-4-6-medium",
+      "name": "Grok 4.6",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "grok-4-7-medium",
+      "name": "Grok 4.7",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "muse-wonder-1-0-high",
+      "name": "Muse Wonder",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "nemotron-3-5-super-high",
+      "name": "Nemotron 3.5 Super",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "nemotron-3-5-lightning-high",
+      "name": "Nemotron 3.5 Lightning",
+      "_meta": {
+       "cognition.ai/supportsImages": false
+      }
+     },
+     {
+      "value": "kimi-k3-high",
+      "name": "Kimi K3",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "glm-5-3-flash-max",
+      "name": "GLM-5.3 Flash",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "deepseek-v4-flash-high",
+      "name": "DeepSeek V4 Flash",
+      "_meta": {
+       "cognition.ai/supportsImages": false
+      }
+     },
+     {
+      "value": "deepseek-v4-1-flash-1017-high",
+      "name": "DeepSeek V4.1 Flash",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "swe-1-7-medium",
+      "name": "SWE-1.7",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-5-medium-sidekick-swe-2-medium",
+      "name": "Fusion (Claude Opus 5.5 Medium + SWE-2 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-2-medium-sidekick-swe-2-medium",
+      "name": "Fusion (Claude Fable 5.2 Medium + SWE-2 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-1-medium-sidekick-swe-2-medium",
+      "name": "Fusion (Claude Fable 5.1 Medium + SWE-2 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-5-6-sol-high-sidekick-swe-2-medium",
+      "name": "Fusion (GPT-5.6 Sol High Thinking + SWE-2 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-high-sidekick-swe-2-medium",
+      "name": "Fusion (Claude Opus 5 High + SWE-2 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-sonnet-5-5-high-sidekick-swe-2-medium",
+      "name": "Fusion (Claude Sonnet 5.5 High + SWE-2 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-astra-high-sidekick-swe-2-medium",
+      "name": "Fusion (GPT-6.2 Astra High Thinking + SWE-2 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-astra-high-sidekick-swe-2-medium",
+      "name": "Fusion (GPT-6 Astra High Thinking + SWE-2 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-sol-high-sidekick-swe-2-medium",
+      "name": "Fusion (GPT-6 Sol High Thinking + SWE-2 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-sol-high-sidekick-swe-2-medium",
+      "name": "Fusion (GPT-6.2 Sol High Thinking + SWE-2 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-1-sol-high-sidekick-swe-2-medium",
+      "name": "Fusion (GPT-6.1 Sol High Thinking + SWE-2 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-5-medium-sidekick-gpt-5-6-luna-high",
+      "name": "Fusion (Claude Opus 5.5 Medium + GPT-5.6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-2-medium-sidekick-gpt-5-6-luna-high",
+      "name": "Fusion (Claude Fable 5.2 Medium + GPT-5.6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-1-medium-sidekick-gpt-5-6-luna-high",
+      "name": "Fusion (Claude Fable 5.1 Medium + GPT-5.6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-5-6-sol-high-sidekick-gpt-5-6-luna-high",
+      "name": "Fusion (GPT-5.6 Sol High Thinking + GPT-5.6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-high-sidekick-gpt-5-6-luna-high",
+      "name": "Fusion (Claude Opus 5 High + GPT-5.6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-sonnet-5-5-high-sidekick-gpt-5-6-luna-high",
+      "name": "Fusion (Claude Sonnet 5.5 High + GPT-5.6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-astra-high-sidekick-gpt-5-6-luna-high",
+      "name": "Fusion (GPT-6.2 Astra High Thinking + GPT-5.6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-astra-high-sidekick-gpt-5-6-luna-high",
+      "name": "Fusion (GPT-6 Astra High Thinking + GPT-5.6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-sol-high-sidekick-gpt-5-6-luna-high",
+      "name": "Fusion (GPT-6 Sol High Thinking + GPT-5.6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-sol-high-sidekick-gpt-5-6-luna-high",
+      "name": "Fusion (GPT-6.2 Sol High Thinking + GPT-5.6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-1-sol-high-sidekick-gpt-5-6-luna-high",
+      "name": "Fusion (GPT-6.1 Sol High Thinking + GPT-5.6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-5-medium-sidekick-gpt-6-luna-high",
+      "name": "Fusion (Claude Opus 5.5 Medium + GPT-6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-2-medium-sidekick-gpt-6-luna-high",
+      "name": "Fusion (Claude Fable 5.2 Medium + GPT-6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-1-medium-sidekick-gpt-6-luna-high",
+      "name": "Fusion (Claude Fable 5.1 Medium + GPT-6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-5-6-sol-high-sidekick-gpt-6-luna-high",
+      "name": "Fusion (GPT-5.6 Sol High Thinking + GPT-6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-high-sidekick-gpt-6-luna-high",
+      "name": "Fusion (Claude Opus 5 High + GPT-6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-sonnet-5-5-high-sidekick-gpt-6-luna-high",
+      "name": "Fusion (Claude Sonnet 5.5 High + GPT-6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-astra-high-sidekick-gpt-6-luna-high",
+      "name": "Fusion (GPT-6.2 Astra High Thinking + GPT-6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-astra-high-sidekick-gpt-6-luna-high",
+      "name": "Fusion (GPT-6 Astra High Thinking + GPT-6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-sol-high-sidekick-gpt-6-luna-high",
+      "name": "Fusion (GPT-6 Sol High Thinking + GPT-6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-sol-high-sidekick-gpt-6-luna-high",
+      "name": "Fusion (GPT-6.2 Sol High Thinking + GPT-6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-1-sol-high-sidekick-gpt-6-luna-high",
+      "name": "Fusion (GPT-6.1 Sol High Thinking + GPT-6 Luna High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-5-medium-sidekick-gpt-6-1-terra-high",
+      "name": "Fusion (Claude Opus 5.5 Medium + GPT-6.1 Terra High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-2-medium-sidekick-gpt-6-1-terra-high",
+      "name": "Fusion (Claude Fable 5.2 Medium + GPT-6.1 Terra High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-1-medium-sidekick-gpt-6-1-terra-high",
+      "name": "Fusion (Claude Fable 5.1 Medium + GPT-6.1 Terra High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-5-6-sol-high-sidekick-gpt-6-1-terra-high",
+      "name": "Fusion (GPT-5.6 Sol High Thinking + GPT-6.1 Terra High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-high-sidekick-gpt-6-1-terra-high",
+      "name": "Fusion (Claude Opus 5 High + GPT-6.1 Terra High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-sonnet-5-5-high-sidekick-gpt-6-1-terra-high",
+      "name": "Fusion (Claude Sonnet 5.5 High + GPT-6.1 Terra High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-astra-high-sidekick-gpt-6-1-terra-high",
+      "name": "Fusion (GPT-6.2 Astra High Thinking + GPT-6.1 Terra High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-astra-high-sidekick-gpt-6-1-terra-high",
+      "name": "Fusion (GPT-6 Astra High Thinking + GPT-6.1 Terra High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-sol-high-sidekick-gpt-6-1-terra-high",
+      "name": "Fusion (GPT-6 Sol High Thinking + GPT-6.1 Terra High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-sol-high-sidekick-gpt-6-1-terra-high",
+      "name": "Fusion (GPT-6.2 Sol High Thinking + GPT-6.1 Terra High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-1-sol-high-sidekick-gpt-6-1-terra-high",
+      "name": "Fusion (GPT-6.1 Sol High Thinking + GPT-6.1 Terra High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-5-medium-sidekick-glm-5-2",
+      "name": "Fusion (Claude Opus 5.5 Medium + GLM-5.2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-2-medium-sidekick-glm-5-2",
+      "name": "Fusion (Claude Fable 5.2 Medium + GLM-5.2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-1-medium-sidekick-glm-5-2",
+      "name": "Fusion (Claude Fable 5.1 Medium + GLM-5.2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-5-6-sol-high-sidekick-glm-5-2",
+      "name": "Fusion (GPT-5.6 Sol High Thinking + GLM-5.2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-high-sidekick-glm-5-2",
+      "name": "Fusion (Claude Opus 5 High + GLM-5.2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-sonnet-5-5-high-sidekick-glm-5-2",
+      "name": "Fusion (Claude Sonnet 5.5 High + GLM-5.2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-astra-high-sidekick-glm-5-2",
+      "name": "Fusion (GPT-6.2 Astra High Thinking + GLM-5.2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-astra-high-sidekick-glm-5-2",
+      "name": "Fusion (GPT-6 Astra High Thinking + GLM-5.2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-sol-high-sidekick-glm-5-2",
+      "name": "Fusion (GPT-6 Sol High Thinking + GLM-5.2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-sol-high-sidekick-glm-5-2",
+      "name": "Fusion (GPT-6.2 Sol High Thinking + GLM-5.2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-1-sol-high-sidekick-glm-5-2",
+      "name": "Fusion (GPT-6.1 Sol High Thinking + GLM-5.2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-5-medium-sidekick-gpt-5-6-sol-high",
+      "name": "Fusion (Claude Opus 5.5 Medium + GPT-5.6 Sol High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-2-medium-sidekick-gpt-5-6-sol-high",
+      "name": "Fusion (Claude Fable 5.2 Medium + GPT-5.6 Sol High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-1-medium-sidekick-gpt-5-6-sol-high",
+      "name": "Fusion (Claude Fable 5.1 Medium + GPT-5.6 Sol High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-high-sidekick-gpt-5-6-sol-high",
+      "name": "Fusion (Claude Opus 5 High + GPT-5.6 Sol High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-sonnet-5-5-high-sidekick-gpt-5-6-sol-high",
+      "name": "Fusion (Claude Sonnet 5.5 High + GPT-5.6 Sol High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-astra-high-sidekick-gpt-5-6-sol-high",
+      "name": "Fusion (GPT-6.2 Astra High Thinking + GPT-5.6 Sol High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-astra-high-sidekick-gpt-5-6-sol-high",
+      "name": "Fusion (GPT-6 Astra High Thinking + GPT-5.6 Sol High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-sol-high-sidekick-gpt-5-6-sol-high",
+      "name": "Fusion (GPT-6 Sol High Thinking + GPT-5.6 Sol High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-sol-high-sidekick-gpt-5-6-sol-high",
+      "name": "Fusion (GPT-6.2 Sol High Thinking + GPT-5.6 Sol High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-1-sol-high-sidekick-gpt-5-6-sol-high",
+      "name": "Fusion (GPT-6.1 Sol High Thinking + GPT-5.6 Sol High Thinking)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-5-medium-sidekick-swe-2-high",
+      "name": "Fusion (Claude Opus 5.5 Medium + SWE-2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-2-medium-sidekick-swe-2-high",
+      "name": "Fusion (Claude Fable 5.2 Medium + SWE-2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-1-medium-sidekick-swe-2-high",
+      "name": "Fusion (Claude Fable 5.1 Medium + SWE-2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-5-6-sol-high-sidekick-swe-2-high",
+      "name": "Fusion (GPT-5.6 Sol High Thinking + SWE-2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-high-sidekick-swe-2-high",
+      "name": "Fusion (Claude Opus 5 High + SWE-2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-sonnet-5-5-high-sidekick-swe-2-high",
+      "name": "Fusion (Claude Sonnet 5.5 High + SWE-2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-astra-high-sidekick-swe-2-high",
+      "name": "Fusion (GPT-6.2 Astra High Thinking + SWE-2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-astra-high-sidekick-swe-2-high",
+      "name": "Fusion (GPT-6 Astra High Thinking + SWE-2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-sol-high-sidekick-swe-2-high",
+      "name": "Fusion (GPT-6 Sol High Thinking + SWE-2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-sol-high-sidekick-swe-2-high",
+      "name": "Fusion (GPT-6.2 Sol High Thinking + SWE-2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-1-sol-high-sidekick-swe-2-high",
+      "name": "Fusion (GPT-6.1 Sol High Thinking + SWE-2 High)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-5-medium-sidekick-swe-2-flash-max",
+      "name": "Fusion (Claude Opus 5.5 Medium + SWE-2 Flash Max)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-2-medium-sidekick-swe-2-flash-max",
+      "name": "Fusion (Claude Fable 5.2 Medium + SWE-2 Flash Max)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-1-medium-sidekick-swe-2-flash-max",
+      "name": "Fusion (Claude Fable 5.1 Medium + SWE-2 Flash Max)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-5-6-sol-high-sidekick-swe-2-flash-max",
+      "name": "Fusion (GPT-5.6 Sol High Thinking + SWE-2 Flash Max)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-high-sidekick-swe-2-flash-max",
+      "name": "Fusion (Claude Opus 5 High + SWE-2 Flash Max)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-sonnet-5-5-high-sidekick-swe-2-flash-max",
+      "name": "Fusion (Claude Sonnet 5.5 High + SWE-2 Flash Max)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-astra-high-sidekick-swe-2-flash-max",
+      "name": "Fusion (GPT-6.2 Astra High Thinking + SWE-2 Flash Max)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-astra-high-sidekick-swe-2-flash-max",
+      "name": "Fusion (GPT-6 Astra High Thinking + SWE-2 Flash Max)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-sol-high-sidekick-swe-2-flash-max",
+      "name": "Fusion (GPT-6 Sol High Thinking + SWE-2 Flash Max)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-sol-high-sidekick-swe-2-flash-max",
+      "name": "Fusion (GPT-6.2 Sol High Thinking + SWE-2 Flash Max)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-1-sol-high-sidekick-swe-2-flash-max",
+      "name": "Fusion (GPT-6.1 Sol High Thinking + SWE-2 Flash Max)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-5-medium-sidekick-claude-sonnet-5-5-medium",
+      "name": "Fusion (Claude Opus 5.5 Medium + Claude Sonnet 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-2-medium-sidekick-claude-sonnet-5-5-medium",
+      "name": "Fusion (Claude Fable 5.2 Medium + Claude Sonnet 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-1-medium-sidekick-claude-sonnet-5-5-medium",
+      "name": "Fusion (Claude Fable 5.1 Medium + Claude Sonnet 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-5-6-sol-high-sidekick-claude-sonnet-5-5-medium",
+      "name": "Fusion (GPT-5.6 Sol High Thinking + Claude Sonnet 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-high-sidekick-claude-sonnet-5-5-medium",
+      "name": "Fusion (Claude Opus 5 High + Claude Sonnet 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-astra-high-sidekick-claude-sonnet-5-5-medium",
+      "name": "Fusion (GPT-6.2 Astra High Thinking + Claude Sonnet 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-astra-high-sidekick-claude-sonnet-5-5-medium",
+      "name": "Fusion (GPT-6 Astra High Thinking + Claude Sonnet 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-sol-high-sidekick-claude-sonnet-5-5-medium",
+      "name": "Fusion (GPT-6 Sol High Thinking + Claude Sonnet 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-sol-high-sidekick-claude-sonnet-5-5-medium",
+      "name": "Fusion (GPT-6.2 Sol High Thinking + Claude Sonnet 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-1-sol-high-sidekick-claude-sonnet-5-5-medium",
+      "name": "Fusion (GPT-6.1 Sol High Thinking + Claude Sonnet 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-5-medium-sidekick-claude-haiku-5-5-medium",
+      "name": "Fusion (Claude Opus 5.5 Medium + Claude Haiku 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-2-medium-sidekick-claude-haiku-5-5-medium",
+      "name": "Fusion (Claude Fable 5.2 Medium + Claude Haiku 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-fable-5-1-medium-sidekick-claude-haiku-5-5-medium",
+      "name": "Fusion (Claude Fable 5.1 Medium + Claude Haiku 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-5-6-sol-high-sidekick-claude-haiku-5-5-medium",
+      "name": "Fusion (GPT-5.6 Sol High Thinking + Claude Haiku 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-opus-5-high-sidekick-claude-haiku-5-5-medium",
+      "name": "Fusion (Claude Opus 5 High + Claude Haiku 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-claude-sonnet-5-5-high-sidekick-claude-haiku-5-5-medium",
+      "name": "Fusion (Claude Sonnet 5.5 High + Claude Haiku 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-astra-high-sidekick-claude-haiku-5-5-medium",
+      "name": "Fusion (GPT-6.2 Astra High Thinking + Claude Haiku 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-astra-high-sidekick-claude-haiku-5-5-medium",
+      "name": "Fusion (GPT-6 Astra High Thinking + Claude Haiku 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-sol-high-sidekick-claude-haiku-5-5-medium",
+      "name": "Fusion (GPT-6 Sol High Thinking + Claude Haiku 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-2-sol-high-sidekick-claude-haiku-5-5-medium",
+      "name": "Fusion (GPT-6.2 Sol High Thinking + Claude Haiku 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "fusion-gpt-6-1-sol-high-sidekick-claude-haiku-5-5-medium",
+      "name": "Fusion (GPT-6.1 Sol High Thinking + Claude Haiku 5.5 Medium)",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-opus-4-6",
+      "name": "Claude Opus 4.6",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-opus-4-6-thinking",
+      "name": "Claude Opus 4.6 Thinking",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-opus-4-6-1m",
+      "name": "Claude Opus 4.6 1M",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-opus-4-6-thinking-1m",
+      "name": "Claude Opus 4.6 Thinking 1M",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-5-4-none",
+      "name": "GPT-5.4",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-5-5-low",
+      "name": "GPT-5.5",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "gpt-5-4-mini-low",
+      "name": "GPT-5.4 Mini",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-sonnet-4-6",
+      "name": "Claude Sonnet 4.6",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-sonnet-4-6-thinking",
+      "name": "Claude Sonnet 4.6 Thinking",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-sonnet-4-6-1m",
+      "name": "Claude Sonnet 4.6 1M",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "claude-sonnet-4-6-thinking-1m",
+      "name": "Claude Sonnet 4.6 Thinking 1M",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "kimi-k2-6",
+      "name": "Kimi K2.6",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "kimi-k2-7",
+      "name": "Kimi K2.7",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "nemotron-3-ultra-high",
+      "name": "Nemotron 3 Ultra",
+      "_meta": {
+       "cognition.ai/supportsImages": false
+      }
+     },
+     {
+      "value": "swe-1-6",
+      "name": "SWE-1.6",
+      "_meta": {
+       "cognition.ai/supportsImages": true
+      }
+     },
+     {
+      "value": "deepseek-v4-pro-high",
+      "name": "DeepSeek V4 Pro",
+      "_meta": {
+       "cognition.ai/supportsImages": false
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

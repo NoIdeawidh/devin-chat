@@ -1,52 +1,132 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="robots" content="noindex">
-  <title>Devin-Chat</title>
+  <meta name="theme-color" content="#0b0f14">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Devin Remote</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-180.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="login-view" class="login-view" hidden>
-    <form id="login-form" class="login-box">
-      <h1>Devin-Chat</h1>
-      <label for="login-password">Passwort</label>
+
+  <div id="login-view" class="login-view">
+    <div class="login-card">
+      <h1>Devin Remote</h1>
+      <p class="login-sub">Fernbedienung für Devin Desktop</p>
+      <label for="login-password">Passwort für <b>henri@devin-chat.local</b></label>
       <input id="login-password" type="password" autocomplete="current-password" autocapitalize="none" autocorrect="off" spellcheck="false" required autofocus>
-      <button type="submit">Anmelden</button>
-      <p id="login-error" class="login-error" hidden></p>
-    </form>
+      <div id="pw-warn" class="warn" hidden>Passwort enthält Leerzeichen am Anfang/Ende – Absicht?</div>
+      <div id="login-err" class="error" hidden></div>
+      <button id="login-btn" class="primary">Anmelden</button>
+      <div id="mfa-box" hidden>
+        <div id="mfa-title" class="mfa-title"></div>
+        <div id="mfa-qr" class="mfa-qr" hidden></div>
+        <div id="mfa-secret" class="mfa-secret" hidden></div>
+        <input id="mfa-code" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="one-time-code" placeholder="6-stelliger Code">
+        <div id="mfa-err" class="error" hidden></div>
+        <button id="mfa-verify" class="primary">Bestätigen</button>
+      </div>
+    </div>
   </div>
 
-  <div id="app" class="app" hidden>
-    <div id="sidebar-overlay" class="sidebar-overlay"></div>
-    <aside id="sidebar" class="sidebar">
-      <button id="new-chat" class="new-chat-btn" type="button">+ Neuer Chat</button>
-      <nav id="chat-list" class="chat-list" aria-label="Chats"></nav>
-      <div class="sidebar-footer">
-        <button id="logout" class="logout-btn" type="button">Abmelden</button>
-      </div>
-    </aside>
-    <main class="main">
-      <header class="topbar">
-        <button id="menu-btn" class="icon-btn menu-btn" type="button" aria-label="Menü">☰</button>
-        <h1 id="chat-title" class="chat-title">Neuer Chat</h1>
-        <div class="model-selects">
-          <select id="family-select" class="model-select" aria-label="Modell-Familie"></select>
-          <select id="variant-select" class="model-select" aria-label="Modell-Variante"></select>
+  <div id="app-view" class="app" hidden>
+    <div id="err-bar" class="err-bar" hidden></div>
+
+    <!-- Sitzungsliste -->
+    <div id="view-list" class="view">
+      <div class="topbar">
+        <h1 class="app-title">Devin Remote</h1>
+        <div class="top-right">
+          <span id="conn-dot" class="dot off"></span>
+          <button id="new-btn" class="primary small">Neu</button>
         </div>
-      </header>
-      <div id="offline-banner" class="offline-banner" hidden>
-        PC ist offline – Antworten kommen erst, wenn der PC läuft.
       </div>
-      <div id="messages" class="messages"></div>
-      <form id="composer" class="composer">
-        <textarea id="composer-input" rows="1" placeholder="Nachricht schreiben…" aria-label="Nachricht"></textarea>
-        <button id="send-btn" class="send-btn" type="submit" aria-label="Senden">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M3 20v-6l8-2-8-2V4l19 8-19 8z"/></svg>
-        </button>
-      </form>
-    </main>
+      <div class="list-controls">
+        <input id="search" type="search" placeholder="Suchen …" autocapitalize="none" autocorrect="off" spellcheck="false">
+        <select id="sort-sel">
+          <option value="updated_at">Zuletzt aktiv</option>
+          <option value="created_at">Erstellt</option>
+        </select>
+        <button id="refresh-btn" class="icon-btn" title="Aktualisieren">⟳</button>
+        <button id="perm-badge" class="badge perm-global" hidden>0</button>
+      </div>
+      <div id="sess-list" class="sess-list"></div>
+      <div id="pc-status" class="status off">PC offline</div>
+      <div class="bottombar">
+        <button id="logout-btn" class="link-btn">Abmelden</button>
+      </div>
+    </div>
+
+    <!-- Sitzungsansicht -->
+    <div id="view-session" class="view" hidden>
+      <div class="topbar sess-top">
+        <button id="back-btn" class="icon-btn" title="Zurück">‹</button>
+        <div class="sess-head">
+          <div id="sess-title" class="sess-title-line"></div>
+          <div class="sess-meta"><span id="sess-cwd"></span> <span id="sess-dirs"></span> <span id="sess-plan"></span></div>
+        </div>
+        <select id="mode-sel" class="mode-sel"></select>
+      </div>
+      <div class="controls-bar">
+        <button id="model-btn" class="model-btn">Modell</button>
+        <div id="config-opts" class="config-opts"></div>
+      </div>
+      <div id="plan-box" class="plan-box" hidden></div>
+      <div id="usage-bar" class="usage-bar" hidden></div>
+      <div id="transcript" class="transcript"></div>
+      <div class="composer-wrap">
+        <div id="img-chip" class="img-chip" hidden>Bild angehängt</div>
+        <div id="cmd-box" class="cmd-box" hidden></div>
+        <div class="composer">
+          <input id="img-input" type="file" accept="image/*" hidden>
+          <button id="attach-btn" class="icon-btn" title="Bild">＋</button>
+          <textarea id="composer-input" rows="1" placeholder="Nachricht an Devin …" autocapitalize="sentences" autocorrect="off" spellcheck="false"></textarea>
+          <button id="send-btn" class="primary send">➤</button>
+          <button id="cancel-btn" class="primary send cancel" hidden>■</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Permission Bottom-Sheet -->
+    <div id="perm-sheet" class="sheet" hidden>
+      <div class="sheet-card">
+        <div id="perm-title" class="sheet-title"></div>
+        <div id="perm-sess" class="sheet-sub"></div>
+        <div id="perm-options" class="perm-options"></div>
+      </div>
+    </div>
+
+    <!-- Neue Sitzung -->
+    <div id="new-sheet" class="sheet" hidden>
+      <div class="sheet-card">
+        <div class="sheet-title">Neue Sitzung</div>
+        <label>Arbeitsordner</label>
+        <input id="cwd-input" list="cwd-list" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="C:\…">
+        <datalist id="cwd-list"></datalist>
+        <label>Zusätzliche Ordner (mit ; getrennt)</label>
+        <input id="dirs-input" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="optional">
+        <div class="sheet-actions">
+          <button id="new-cancel" class="link-btn">Abbrechen</button>
+          <button id="new-ok" class="primary">Erstellen</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modell-Auswahl -->
+    <div id="model-sheet" class="sheet" hidden>
+      <div class="sheet-card model-card">
+        <div class="sheet-title">Modell wählen</div>
+        <input id="model-search" type="search" placeholder="Modell suchen …" autocapitalize="none" autocorrect="off" spellcheck="false">
+        <div id="model-list" class="model-list"></div>
+        <button id="model-close" class="link-btn">Schließen</button>
+      </div>
+    </div>
   </div>
 
   <script type="module" src="app.js"></script>
