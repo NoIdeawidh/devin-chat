@@ -852,7 +852,8 @@ async function afterPassword() {
     const qr = en.data.totp?.qr_code || '';
     const img = document.createElement('img');
     img.alt = 'QR-Code für die Authenticator-App';
-    img.src = qr.startsWith('data:') ? qr : `data:image/svg+xml;utf8,${encodeURIComponent(qr)}`;
+    const svg = qr.startsWith('data:') ? qr.slice(qr.indexOf(',') + 1) : qr;
+    img.src = svg.trimStart().startsWith('<') ? `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}` : qr;
     $('#mfa-qr').replaceChildren(img);
     $('#mfa-secret').hidden = false;
     $('#mfa-secret').textContent = `Schlüssel: ${en.data.totp?.secret || ''}`;
