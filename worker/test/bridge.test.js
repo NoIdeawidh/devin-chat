@@ -172,3 +172,12 @@ test('claimRpc claimed nur pending rows', async () => {
   row.status = 'done';
   assert.equal(await store.claimRpc(row.id), false);
 });
+
+test('stripLoneSurrogates/sanitizePayload entfernt ungepaarte Surrogate', async () => {
+  const { stripLoneSurrogates, sanitizePayload } = await import('../lib.js');
+  const bad = 'a\ud800b\udfffc';
+  const ok = 'a\ud83d\ude00b'; // echtes Emoji-Paar bleibt
+  assert.equal(stripLoneSurrogates(bad), 'abc');
+  assert.equal(stripLoneSurrogates(ok), ok);
+  assert.deepEqual(sanitizePayload({ t: bad }), { t: 'abc' });
+});

@@ -6,6 +6,8 @@ const RPC_PENDING_LIMIT = 10;
 const EVENTS_KEEP_MS = 2 * 24 * 3600 * 1000;
 const RPC_KEEP_MS = 24 * 3600 * 1000;
 
+import { sanitizePayload } from './lib.js';
+
 function isAuthError(err) {
   const s = `${err?.code || ''} ${err?.message || ''}`.toLowerCase();
   return s.includes('jwt') || s.includes('401') || s.includes('pgrst301') || s.includes('auth');
@@ -73,9 +75,13 @@ export class SupaStore {
 
   async insertEvents(rows) {
     if (!rows.length) return;
-    await this._run(() =>
-      this.sb.from('events').insert(rows.map((r) => ({ ...r, owner: this.ownerId })))
-    );
+    // Seriell einfuegen: Insert-Bursts (Replay) sonst statement timeouts.
+    this._q = (this._q || Promise.resolve()).then(async () => {
+      await this._run(() =>
+        this.sb.from('events').insert(rows.map((r) => ({ ...r, owner: this.ownerId, payload: sanitizePayload(r.payload) })))
+      );
+    });
+    return this._q;
   }
 
   async upsertStatus(fields) {

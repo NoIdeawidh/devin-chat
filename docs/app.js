@@ -323,6 +323,13 @@ function applyEvent(e) {
         const s = sess(e.session_id);
         if (s && p.params?.text) s.msgs.push({ type: 'note', text: p.params.text });
       }
+      if (p.method?.startsWith('_cognition.ai/mcp/')) {
+        const url = p.params?.url || p.params?.authUrl || p.params?.authorizationUrl;
+        if (url && e.session_id) {
+          const s = sess(e.session_id);
+          if (s) s.msgs.push({ type: 'note', text: `MCP-Anmeldung erforderlich – am PC bestätigen oder öffnen: ${url}` });
+        }
+      }
       break;
     }
     case 'bridge': {

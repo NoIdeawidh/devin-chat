@@ -185,3 +185,17 @@ export function assembleParts(parts) {
   const ordered = [...parts].sort((a, b) => a.split.seq - b.split.seq);
   return JSON.parse(ordered.map((p) => p.data).join(''));
 }
+
+// Postgres JSONB lehnt Strings mit ungepaarten Surrogaten ab
+// ("unsupported Unicode escape sequence"). Entfernt alle Surrogat-
+// Codeeinheiten, die kein gueltiges Paar bilden.
+export function stripLoneSurrogates(s) {
+  return s.replace(
+    /(?<![\ud800-\udbff])([\udc00-\udfff])|([\ud800-\udbff])(?![\udc00-\udfff])/g,
+    () => ''
+  );
+}
+
+export function sanitizePayload(payload) {
+  return JSON.parse(JSON.stringify(payload, (_k, v) => (typeof v === 'string' ? stripLoneSurrogates(v) : v)));
+}
