@@ -197,5 +197,10 @@ export function stripLoneSurrogates(s) {
 }
 
 export function sanitizePayload(payload) {
-  return JSON.parse(JSON.stringify(payload, (_k, v) => (typeof v === 'string' ? stripLoneSurrogates(v) : v)));
+  return JSON.parse(
+    JSON.stringify(payload, (_k, v) =>
+      // Postgres jsonb lehnt \u0000 und ungepaarte Surrogate ab.
+      typeof v === 'string' ? stripLoneSurrogates(v.replace(/\0/g, '')) : v
+    )
+  );
 }

@@ -76,11 +76,15 @@ export class SupaStore {
   async insertEvents(rows) {
     if (!rows.length) return;
     // Seriell einfuegen: Insert-Bursts (Replay) sonst statement timeouts.
-    this._q = (this._q || Promise.resolve()).then(async () => {
-      await this._run(() =>
-        this.sb.from('events').insert(rows.map((r) => ({ ...r, owner: this.ownerId, payload: sanitizePayload(r.payload) })))
+    // .catch() vor .then(): ein fehlgeschlagener Insert darf die Queue nicht
+    // dauerhaft vergiften – Fehler geht trotzdem an den Aufrufer weiter.
+    this._q = (this._q || Promise.resolve())
+      .catch(() => {})
+      .then(() =>
+        this._run(() =>
+          this.sb.from('events').insert(rows.map((r) => ({ ...r, owner: this.ownerId, payload: sanitizePayload(r.payload) })))
+        )
       );
-    });
     return this._q;
   }
 

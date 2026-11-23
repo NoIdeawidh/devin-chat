@@ -181,3 +181,8 @@ test('stripLoneSurrogates/sanitizePayload entfernt ungepaarte Surrogate', async 
   assert.equal(stripLoneSurrogates(ok), ok);
   assert.deepEqual(sanitizePayload({ t: bad }), { t: 'abc' });
 });
+
+test('sanitizePayload entfernt \u0000 und Queue ueberlebt Fehler', async () => {
+  const { sanitizePayload } = await import('../lib.js');
+  assert.deepEqual(sanitizePayload({ t: 'a\0b\0c' }), { t: 'abc' });
+});
