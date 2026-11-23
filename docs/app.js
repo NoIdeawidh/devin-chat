@@ -849,7 +849,11 @@ async function afterPassword() {
     if (en.error) { $('#login-err').textContent = en.error.message; $('#login-err').hidden = false; return; }
     $('#mfa-title').textContent = 'Zwei-Faktor einrichten – QR scannen';
     $('#mfa-qr').hidden = false;
-    $('#mfa-qr').innerHTML = en.data.totp?.qr_code || '';
+    const qr = en.data.totp?.qr_code || '';
+    const img = document.createElement('img');
+    img.alt = 'QR-Code für die Authenticator-App';
+    img.src = qr.startsWith('data:') ? qr : `data:image/svg+xml;utf8,${encodeURIComponent(qr)}`;
+    $('#mfa-qr').replaceChildren(img);
     $('#mfa-secret').hidden = false;
     $('#mfa-secret').textContent = `Schlüssel: ${en.data.totp?.secret || ''}`;
     setupVerify(en.data.id);
