@@ -65,6 +65,11 @@ class SupaTransport {
     if (r.error) throw new Error(r.error.message);
     return r.data;
   }
+  async latestEventId() {
+    const r = await this.sb.from('events').select('id').order('id', { ascending: false }).limit(1);
+    if (r.error) throw new Error(r.error.message);
+    return r.data[0]?.id || 0;
+  }
   async bridgeStatus() {
     const r = await this.sb.from('bridge_status').select('*').eq('owner', OWNER_ID).maybeSingle();
     if (r.error) throw new Error(r.error.message);
@@ -101,6 +106,7 @@ class MockTransport {
     return { last_seen: new Date().toISOString(), hostname: 'DESKTOP-MOCK', daemon_ok: true, version: '1.0.0' };
   }
   async pollEvents(lastId) { return this.ev.filter((e) => e.id > lastId); }
+  async latestEventId() { return 0; } // Mock: Replay soll komplett durchlaufen
 
   async rpc(method, p = {}) {
     await sleep(120);
@@ -303,7 +309,13 @@ function applyEvent(e) {
   switch (e.kind) {
     case 'update': {
       const items = p.bundled || [p];
-      for (const u of items) applyUpdate(u.sessionId || e.session_id, u);
+      let headerDirty = false;
+      for (const u of items) {
+        const usid = u.sessionId || e.session_id;
+        applyUpdate(usid, u);
+        if (usid === state.currentSid && /mode_update|config_option_update/.test(u.update?.sessionUpdate || '')) headerDirty = true;
+      }
+      if (headerDirty) renderSessionHeader();
       break;
     }
     case 'request': {
@@ -600,6 +612,9 @@ async function openSession(meta) {
   state.currentSid = sid;
   showSession();
   $('#transcript').innerHTML = '<div class="empty">Lade Sitzung …</div>';
+  // Cursor auf den aktuellen Endstand setzen: session/load streamt das Replay
+  // frisch – alte Events anderer Sitzungen würden den Poll nur ausbremsen.
+  try { state.lastEventId = Math.max(state.lastEventId, await state.transport.latestEventId()); } catch {}
   try {
     const r = await rpcCall('_bridge/session/load', { sessionId: sid, cwd: meta.cwd, additionalDirectories: meta.additionalDirectories });
     s.modes = r.modes;
@@ -865,6 +880,7 @@ async function startApp() {
   $('#app-view').hidden = false;
   pollStatus();
   setInterval(pollStatus, STATUS_POLL_MS);
+  state.transport.latestEventId?.().then((id) => { state.lastEventId = Math.max(state.lastEventId, id); }).catch(() => {});
   setInterval(pollEvents, EVENTS_POLL_MS);
   document.addEventListener('visibilitychange', async () => {
     if (!document.hidden && state.started) {
