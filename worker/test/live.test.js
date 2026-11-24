@@ -50,6 +50,10 @@ test('live: Bridge gegen echtes devin acp (MemoryStore)', { timeout: 240000, ski
   await runRpc('_bridge/session/set_mode', { sessionId: sid, modeId: 'ask' });
   await runRpc('_bridge/session/rename', { sessionId: sid, title: 'live-bridge-test' });
 
+  const op = await runRpc('_bridge/session/open', { sessionId: sid, cwd: PROBE_DIR });
+  assert.equal(op.reset, true);
+  assert.equal(op.modes.currentModeId, 'ask');
+
   const pr = runRpc('_bridge/session/prompt', {
     sessionId: sid, prompt: [{ type: 'text', text: 'Antworte nur: ok' }],
   });
@@ -62,9 +66,12 @@ test('live: Bridge gegen echtes devin acp (MemoryStore)', { timeout: 240000, ski
 
   await bridge.flush();
   await new Promise((r) => setTimeout(r, 100));
-  const upd = store.events.filter((e) => e.kind === 'update' && e.session_id === sid);
+  // kompakter Live-Strom statt roher Updates
+  const upd = store.events.filter((e) => e.kind === 'live' && e.session_id === sid);
   assert.ok(upd.length >= 1);
-  assert.ok(upd[0].payload.bundled.length >= 1);
+  assert.ok(upd[0].payload.ops.length >= 1);
+  // Kein rohes update-Event mehr
+  assert.equal(store.events.filter((e) => e.kind === 'update').length, 0);
 
   await runRpc('_bridge/session/close', { sessionId: sid });
   await runRpc('_bridge/session/delete', { sessionId: sid });

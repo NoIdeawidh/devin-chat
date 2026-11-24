@@ -59,6 +59,7 @@
       <div id="sess-list" class="sess-list"></div>
       <div id="pc-status" class="status off">PC offline</div>
       <div class="bottombar">
+        <label class="datasave-opt"><input id="datasave" type="checkbox"> Datensparmodus</label>
         <button id="logout-btn" class="link-btn">Abmelden</button>
       </div>
     </div>
@@ -107,8 +108,13 @@
       <div class="sheet-card">
         <div class="sheet-title">Neue Sitzung</div>
         <label>Arbeitsordner</label>
-        <input id="cwd-input" list="cwd-list" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="C:\…">
-        <datalist id="cwd-list"></datalist>
+        <div id="cwd-pins" class="cwd-list"></div>
+        <div id="cwd-sug" class="cwd-list"></div>
+        <div class="cwd-manual">
+          <input id="cwd-input" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="C:\…">
+          <button id="cwd-browse-btn" class="icon-btn" title="Ordner durchsuchen">🗂</button>
+        </div>
+        <div id="cwd-browse" class="cwd-browse" hidden></div>
         <label>Zusätzliche Ordner (mit ; getrennt)</label>
         <input id="dirs-input" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="optional">
         <div class="sheet-actions">

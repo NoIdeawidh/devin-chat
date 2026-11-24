@@ -85,7 +85,34 @@ async function main() {
   startKeepAwake();
   await bridge.heartbeat();
   await bridge.cleanup();
-  setInterval(() => bridge.tick(), POLL_MS);
+  // Tick-Schleife mit Overlap-Guard + exponentiellem Backoff bei Poll-Fehlern
+  // (Ausfaelle erzeugen sonst Tausende Logzeilen/Requests pro Stunde).
+  let tickBusy = false;
+  let pollFails = 0;
+  let tickDelay = POLL_MS;
+  const tickLoop = async () => {
+    if (!tickBusy) {
+      tickBusy = true;
+      let ok = false;
+      try {
+        ok = await bridge.tick();
+      } catch {
+        ok = false;
+      }
+      tickBusy = false;
+      if (!ok) {
+        pollFails++;
+        if (pollFails === 1) log('rpc poll fehlgeschlagen – Backoff aktiv.');
+        tickDelay = Math.min(30000, POLL_MS * 2 ** Math.min(pollFails, 5));
+      } else {
+        if (pollFails) log(`rpc poll wieder ok (nach ${pollFails} Fehlversuchen).`);
+        pollFails = 0;
+        tickDelay = POLL_MS;
+      }
+    }
+    setTimeout(tickLoop, tickDelay);
+  };
+  tickLoop();
   setInterval(() => bridge.heartbeat(), HEARTBEAT_MS);
   setInterval(() => bridge.cleanup(), CLEANUP_MS);
   log('Bridge läuft – warte auf RPC.');
